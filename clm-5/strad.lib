@@ -1,0 +1,681 @@
+#0Y_ #0Y |CHARSET|::|UTF-8|
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|COMMON-LISP-USER|::|BOWFILT|)
+(|SYSTEM|::|%PUTD| '|COMMON-LISP-USER|::|BOWFILT|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|BOWFILT|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|COMMON-LISP-USER|::|INHARM|
+        (|COMMON-LISP|::|CADR| |SYSTEM|::|<MACRO-FORM>|)))
+      (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|BOWFILT|
+       `(|COMMON-LISP|::|LET*|
+         ((|COMMON-LISP-USER|::|INHARMON| ,|COMMON-LISP-USER|::|INHARM|))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNB|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B0B|
+              |COMMON-LISP-USER|::|VIB|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B1B|
+              |COMMON-LISP-USER|::|XM1B|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B2B|
+              |COMMON-LISP-USER|::|XM2B|))
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A1B|
+             |COMMON-LISP-USER|::|YM1B|))
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A2B|
+            |COMMON-LISP-USER|::|YM2B|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM2B|
+          |COMMON-LISP-USER|::|XM1B|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM1B|
+          |COMMON-LISP-USER|::|VIB|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM2B|
+          |COMMON-LISP-USER|::|YM1B|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM1B|
+          |COMMON-LISP-USER|::|YNB|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNN|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B0N|
+              |COMMON-LISP-USER|::|VIN|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B1N|
+              |COMMON-LISP-USER|::|XM1N|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B2N|
+              |COMMON-LISP-USER|::|XM2N|))
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A1N|
+             |COMMON-LISP-USER|::|YM1N|))
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A2N|
+            |COMMON-LISP-USER|::|YM2N|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM2N|
+          |COMMON-LISP-USER|::|XM1N|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM1N|
+          |COMMON-LISP-USER|::|VIN|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM2N|
+          |COMMON-LISP-USER|::|YM1N|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM1N|
+          |COMMON-LISP-USER|::|YNN|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNBT|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B0BT|
+              |COMMON-LISP-USER|::|VIBT|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B1BT|
+              |COMMON-LISP-USER|::|XM1BT|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B2BT|
+              |COMMON-LISP-USER|::|XM2BT|))
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A1BT|
+             |COMMON-LISP-USER|::|YM1BT|))
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A2BT|
+            |COMMON-LISP-USER|::|YM2BT|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM2BT|
+          |COMMON-LISP-USER|::|XM1BT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM1BT|
+          |COMMON-LISP-USER|::|VIBT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM2BT|
+          |COMMON-LISP-USER|::|YM1BT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM1BT|
+          |COMMON-LISP-USER|::|YNBT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNNT|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B0NT|
+              |COMMON-LISP-USER|::|VINT|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B1NT|
+              |COMMON-LISP-USER|::|XM1NT|)
+             (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|B2NT|
+              |COMMON-LISP-USER|::|XM2NT|))
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A1NT|
+             |COMMON-LISP-USER|::|YM1NT|))
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|A2NT|
+            |COMMON-LISP-USER|::|YM2NT|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM2NT|
+          |COMMON-LISP-USER|::|XM1NT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XM1NT|
+          |COMMON-LISP-USER|::|VINT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM2NT|
+          |COMMON-LISP-USER|::|YM1NT|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YM1NT|
+          |COMMON-LISP-USER|::|YNNT|)
+         (|COMMON-LISP|::|IF|
+          (|COMMON-LISP|::|<=| |COMMON-LISP-USER|::|INHARMON| 1.0f-5)
+          (|COMMON-LISP|::|PROGN|
+           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|INHARMON| 1.0f-5)))
+         (|COMMON-LISP|::|IF|
+          (|COMMON-LISP|::|>=| |COMMON-LISP-USER|::|INHARMON| 0.9999f0)
+          (|COMMON-LISP|::|PROGN|
+           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|INHARMON| 0.9999f0)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|Y1NB|
+          (|COMMON-LISP|::|+|
+           (|COMMON-LISP|::|*| -1.
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|INHARMON|
+             |COMMON-LISP-USER|::|YNB|))
+           |COMMON-LISP-USER|::|YNBA1|
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|INHARMON|
+            |COMMON-LISP-USER|::|YA1NB|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YA1NB|
+          |COMMON-LISP-USER|::|Y1NB|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNBA1|
+          |COMMON-LISP-USER|::|YNB|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|Y1NB|
+          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|Y1NB|))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNN|
+          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|YNN|))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|YNBT|
+          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|YNBT|))))))))
+  '(|COMMON-LISP-USER|::|INHARM|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|COMMON-LISP-USER|::|FRIEDLANDER|)
+(|SYSTEM|::|%PUTD| '|COMMON-LISP-USER|::|FRIEDLANDER|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|FRIEDLANDER|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 4. 4.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|COMMON-LISP-USER|::|VVHH|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|COMMON-LISP-USER|::|VVBB| (|COMMON-LISP|::|CADDR| . #1#))
+       (|COMMON-LISP-USER|::|FFBB| (|COMMON-LISP|::|CADDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|FRIEDLANDER|
+       `(|COMMON-LISP|::|LET*|
+         ((|COMMON-LISP-USER|::|VH| ,|COMMON-LISP-USER|::|VVHH|)
+          (|COMMON-LISP-USER|::|VB| ,|COMMON-LISP-USER|::|VVBB|)
+          (|COMMON-LISP-USER|::|FB| ,|COMMON-LISP-USER|::|FFBB|))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|AA|
+          |COMMON-LISP-USER|::|ZSLOPE|)
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|BB1|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|*| 0.2f0 |COMMON-LISP-USER|::|ZSLOPE|)
+             (|COMMON-LISP|::|*| 0.3f0 |COMMON-LISP-USER|::|FB|))
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+             |COMMON-LISP-USER|::|VB|))
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+            |COMMON-LISP-USER|::|VH|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|CC1|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|*| 0.06f0 |COMMON-LISP-USER|::|FB|)
+             (|COMMON-LISP|::|*|
+              (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+               |COMMON-LISP-USER|::|VH|)
+              |COMMON-LISP-USER|::|VB|))
+            (|COMMON-LISP|::|*| 0.2f0 |COMMON-LISP-USER|::|ZSLOPE|
+             |COMMON-LISP-USER|::|VH|))
+           (|COMMON-LISP|::|*| 0.3f0 |COMMON-LISP-USER|::|VB|
+            |COMMON-LISP-USER|::|FB|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DELTA1|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|BB1|
+            |COMMON-LISP-USER|::|BB1|)
+           (|COMMON-LISP|::|*| 4. |COMMON-LISP-USER|::|AA|
+            |COMMON-LISP-USER|::|CC1|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|BB2|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|-|
+            (|COMMON-LISP|::|-|
+             (|COMMON-LISP|::|*| -0.2f0 |COMMON-LISP-USER|::|ZSLOPE|)
+             (|COMMON-LISP|::|*| 0.3f0 |COMMON-LISP-USER|::|FB|))
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+             |COMMON-LISP-USER|::|VB|))
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+            |COMMON-LISP-USER|::|VH|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|CC2|
+          (|COMMON-LISP|::|+|
+           (|COMMON-LISP|::|+|
+            (|COMMON-LISP|::|+|
+             (|COMMON-LISP|::|+|
+              (|COMMON-LISP|::|*| 0.06f0 |COMMON-LISP-USER|::|FB|)
+              (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+               |COMMON-LISP-USER|::|VH| |COMMON-LISP-USER|::|VB|))
+             (|COMMON-LISP|::|*| 0.2f0 |COMMON-LISP-USER|::|ZSLOPE|
+              |COMMON-LISP-USER|::|VH|))
+            (|COMMON-LISP|::|*| 0.3f0 |COMMON-LISP-USER|::|VB|
+             |COMMON-LISP-USER|::|FB|))
+           (|COMMON-LISP|::|*| 0.1f0 |COMMON-LISP-USER|::|FB|)))
+         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DELTA2|
+          (|COMMON-LISP|::|-|
+           (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|BB2|
+            |COMMON-LISP-USER|::|BB2|)
+           (|COMMON-LISP|::|*| 4. |COMMON-LISP-USER|::|AA|
+            |COMMON-LISP-USER|::|CC2|)))
+         (|COMMON-LISP|::|IF|
+          (|COMMON-LISP|::|OR| (|COMMON-LISP|::|=| |COMMON-LISP-USER|::|VB| 0.)
+           (|COMMON-LISP|::|=| |COMMON-LISP-USER|::|FB| 0.))
+          (|COMMON-LISP|::|PROGN|
+           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+            |COMMON-LISP-USER|::|VH|))
+          (|COMMON-LISP|::|PROGN|
+           (|COMMON-LISP|::|COND|
+            ((|COMMON-LISP|::|=| |COMMON-LISP-USER|::|VH|
+              |COMMON-LISP-USER|::|VB|)
+             (|COMMON-LISP|::|PROGN|
+              (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+               |COMMON-LISP-USER|::|VB|)
+              (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK| 1.)))
+            (|COMMON-LISP|::|T|
+             (|COMMON-LISP|::|PROGN|
+              (|COMMON-LISP|::|IF|
+               (|COMMON-LISP|::|>| |COMMON-LISP-USER|::|VH|
+                |COMMON-LISP-USER|::|VB|)
+               (|COMMON-LISP|::|PROGN|
+                (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|LHS| 0.)
+                (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|RHS| 1.))
+               (|COMMON-LISP|::|PROGN|
+                (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|RHS| 0.)
+                (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|LHS| 1.)))
+              (|COMMON-LISP|::|COND|
+               ((|COMMON-LISP|::|=| |COMMON-LISP-USER|::|RHS| 1.)
+                (|COMMON-LISP|::|PROGN|
+                 (|COMMON-LISP|::|COND|
+                  ((|COMMON-LISP|::|<| |COMMON-LISP-USER|::|DELTA1| 0.)
+                   (|COMMON-LISP|::|PROGN|
+                    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                     |COMMON-LISP-USER|::|VB|)
+                    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK| 1.)))
+                  (|COMMON-LISP|::|T|
+                   (|COMMON-LISP|::|PROGN|
+                    (|COMMON-LISP|::|COND|
+                     ((|COMMON-LISP|::|=| |COMMON-LISP-USER|::|STICK| 1.)
+                      (|COMMON-LISP|::|PROGN|
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|VTEMP|
+                        |COMMON-LISP-USER|::|VB|)
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|F|
+                        (|COMMON-LISP|::|*|
+                         (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|ZSLOPE|)
+                         (|COMMON-LISP|::|-| |COMMON-LISP-USER|::|VTEMP|
+                          |COMMON-LISP-USER|::|VH|)))
+                       (|COMMON-LISP|::|IF|
+                        (|COMMON-LISP|::|>=| |COMMON-LISP-USER|::|F|
+                         (|COMMON-LISP|::|*| -1.
+                          (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|MUS|
+                           |COMMON-LISP-USER|::|FB|)))
+                        (|COMMON-LISP|::|PROGN|
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                          |COMMON-LISP-USER|::|VTEMP|))
+                        (|COMMON-LISP|::|PROGN|
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V1|
+                          (|COMMON-LISP|::|/|
+                           (|COMMON-LISP|::|+|
+                            (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB1|)
+                            (|COMMON-LISP|::|SQRT|
+                             |COMMON-LISP-USER|::|DELTA1|))
+                           (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V2|
+                          (|COMMON-LISP|::|/|
+                           (|COMMON-LISP|::|-|
+                            (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB1|)
+                            (|COMMON-LISP|::|SQRT|
+                             |COMMON-LISP-USER|::|DELTA1|))
+                           (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                          (|COMMON-LISP|::|MIN| |COMMON-LISP-USER|::|V1|
+                           |COMMON-LISP-USER|::|V2|))
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK|
+                          0.)))))
+                     (|COMMON-LISP|::|T|
+                      (|COMMON-LISP|::|PROGN|
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V1|
+                        (|COMMON-LISP|::|/|
+                         (|COMMON-LISP|::|+|
+                          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB1|)
+                          (|COMMON-LISP|::|SQRT| |COMMON-LISP-USER|::|DELTA1|))
+                         (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V2|
+                        (|COMMON-LISP|::|/|
+                         (|COMMON-LISP|::|-|
+                          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB1|)
+                          (|COMMON-LISP|::|SQRT| |COMMON-LISP-USER|::|DELTA1|))
+                         (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                        (|COMMON-LISP|::|MIN| |COMMON-LISP-USER|::|V1|
+                         |COMMON-LISP-USER|::|V2|))
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK|
+                        0.)))))))))
+               ((|COMMON-LISP|::|=| |COMMON-LISP-USER|::|LHS| 1.)
+                (|COMMON-LISP|::|PROGN|
+                 (|COMMON-LISP|::|COND|
+                  ((|COMMON-LISP|::|<| |COMMON-LISP-USER|::|DELTA2| 0.)
+                   (|COMMON-LISP|::|PROGN|
+                    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                     |COMMON-LISP-USER|::|VB|)
+                    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK| 1.)))
+                  (|COMMON-LISP|::|T|
+                   (|COMMON-LISP|::|PROGN|
+                    (|COMMON-LISP|::|COND|
+                     ((|COMMON-LISP|::|=| |COMMON-LISP-USER|::|STICK| 1.)
+                      (|COMMON-LISP|::|PROGN|
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|VTEMP|
+                        |COMMON-LISP-USER|::|VB|)
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|F|
+                        (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+                         (|COMMON-LISP|::|-| |COMMON-LISP-USER|::|VTEMP|
+                          |COMMON-LISP-USER|::|VH|)))
+                       (|COMMON-LISP|::|IF|
+                        (|COMMON-LISP|::|AND|
+                         (|COMMON-LISP|::|<=| |COMMON-LISP-USER|::|F|
+                          (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|MUS|
+                           |COMMON-LISP-USER|::|FB|))
+                         (|COMMON-LISP|::|>| |COMMON-LISP-USER|::|F| 0.))
+                        (|COMMON-LISP|::|PROGN|
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                          |COMMON-LISP-USER|::|VTEMP|))
+                        (|COMMON-LISP|::|PROGN|
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V1|
+                          (|COMMON-LISP|::|/|
+                           (|COMMON-LISP|::|-|
+                            (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB2|)
+                            (|COMMON-LISP|::|SQRT|
+                             |COMMON-LISP-USER|::|DELTA2|))
+                           (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V2|
+                          (|COMMON-LISP|::|/|
+                           (|COMMON-LISP|::|+|
+                            (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB2|)
+                            (|COMMON-LISP|::|SQRT|
+                             |COMMON-LISP-USER|::|DELTA2|))
+                           (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|VTEMP|
+                          (|COMMON-LISP|::|MIN| |COMMON-LISP-USER|::|V1|
+                           |COMMON-LISP-USER|::|V2|))
+                         (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK| 0.)
+                         (|COMMON-LISP|::|IF|
+                          (|COMMON-LISP|::|>| |COMMON-LISP-USER|::|VTEMP|
+                           |COMMON-LISP-USER|::|VB|)
+                          (|COMMON-LISP|::|PROGN|
+                           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                            |COMMON-LISP-USER|::|VB|)
+                           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK|
+                            1.))
+                          (|COMMON-LISP|::|PROGN|
+                           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                            |COMMON-LISP-USER|::|VTEMP|)
+                           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|F|
+                            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+                             (|COMMON-LISP|::|-| |COMMON-LISP-USER|::|V|
+                              |COMMON-LISP-USER|::|VH|)))))))))
+                     (|COMMON-LISP|::|T|
+                      (|COMMON-LISP|::|PROGN|
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V1|
+                        (|COMMON-LISP|::|/|
+                         (|COMMON-LISP|::|-|
+                          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB2|)
+                          (|COMMON-LISP|::|SQRT| |COMMON-LISP-USER|::|DELTA2|))
+                         (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V2|
+                        (|COMMON-LISP|::|/|
+                         (|COMMON-LISP|::|+|
+                          (|COMMON-LISP|::|*| -1. |COMMON-LISP-USER|::|BB2|)
+                          (|COMMON-LISP|::|SQRT| |COMMON-LISP-USER|::|DELTA2|))
+                         (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|AA|)))
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                        (|COMMON-LISP|::|MIN| |COMMON-LISP-USER|::|V1|
+                         |COMMON-LISP-USER|::|V2|))
+                       (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK|
+                        0.)))))))
+                 (|COMMON-LISP|::|IF|
+                  (|COMMON-LISP|::|>| |COMMON-LISP-USER|::|V|
+                   |COMMON-LISP-USER|::|VB|)
+                  (|COMMON-LISP|::|PROGN|
+                   (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|V|
+                    |COMMON-LISP-USER|::|VB|)
+                   (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|STICK|
+                    1.)))))))))
+           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|F|
+            (|COMMON-LISP|::|*| |COMMON-LISP-USER|::|ZSLOPE|
+             (|COMMON-LISP|::|-| |COMMON-LISP-USER|::|V|
+              |COMMON-LISP-USER|::|VH|)))
+           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XNN|
+            (|COMMON-LISP|::|+| |COMMON-LISP-USER|::|Y1NB|
+             (|COMMON-LISP|::|/| |COMMON-LISP-USER|::|F|
+              (|COMMON-LISP|::|*| 2. |COMMON-LISP-USER|::|STRINGIMPEDANCE|))))
+           (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|XNB|
+            (|COMMON-LISP|::|+| |COMMON-LISP-USER|::|YNN|
+             (|COMMON-LISP|::|/| |COMMON-LISP-USER|::|F|
+              (|COMMON-LISP|::|*| 2.
+               |COMMON-LISP-USER|::|STRINGIMPEDANCE|))))))))))))
+  '(|COMMON-LISP-USER|::|VVHH| |COMMON-LISP-USER|::|VVBB|
+    |COMMON-LISP-USER|::|FFBB|)))
+(|COMMON-LISP|::|PROGN|
+ (|COMMON-LISP|::|DEFSTRUCT|
+  (|COMMON-LISP-USER|::|DCB| (:|TYPE| |COMMON-LISP|::|VECTOR|) :|NAMED|)
+  (|COMMON-LISP-USER|::|INPUT| #1=0.0f0) (|COMMON-LISP-USER|::|OUTPUT| #1#))
+ (|COMMON-LISP|::|PROGN|
+  (|CLM|::|DEF-CLM-FUN| (|COMMON-LISP|::|INTERN| #2="DCB-INPUT")
+   #'(|COMMON-LISP|::|LAMBDA| #3=(|CLM|::|VAR| |CLM|::|X|)
+      (|CLM|::|PACKAGE-OP| #4='|CLM|::|<AREF>| |CLM|::|VAR|
+       (|COMMON-LISP|::|LIST| #5='|COMMON-LISP|::|AREF|
+        #6=(|COMMON-LISP|::|CADR| |CLM|::|X|) 1.))))
+  (|COMMON-LISP|::|PUSH|
+   (|COMMON-LISP|::|LIST| (|COMMON-LISP|::|INTERN| #2#)
+    #7='|CLM|::|<SETF-AREF>| (|COMMON-LISP|::|LIST| 1.))
+   . #8=(|CLM|::|SETF-FUNCTIONS|)))
+ (|COMMON-LISP|::|PROGN|
+  (|CLM|::|DEF-CLM-FUN| (|COMMON-LISP|::|INTERN| #9="DCB-OUTPUT")
+   #'(|COMMON-LISP|::|LAMBDA| #3#
+      (|CLM|::|PACKAGE-OP| #4# |CLM|::|VAR|
+       (|COMMON-LISP|::|LIST| #5# #6# 2.))))
+  (|COMMON-LISP|::|PUSH|
+   (|COMMON-LISP|::|LIST| (|COMMON-LISP|::|INTERN| #9#) #7#
+    (|COMMON-LISP|::|LIST| 2.))
+   . #8#)))
+(|COMMON-LISP|::|LET| |COMMON-LISP|::|NIL|
+ (|COMMON-LISP|::|LET|
+  ((#:|G5033|
+    (|COMMON-LISP|::|CONS| '|COMMON-LISP-USER|::|DCB|
+     (|CLOS|::|CLASS-NAMES|
+      (|COMMON-LISP|::|GET| '|COMMON-LISP|::|STRUCTURE-OBJECT|
+       '|CLOS|::|CLOSCLASS|)))))
+  (|SYSTEM|::|STRUCTURE-UNDEFINE-ACCESSORIES| '|COMMON-LISP-USER|::|DCB|)
+  (|SYSTEM|::|%PUT| '|COMMON-LISP-USER|::|DCB|
+   '|SYSTEM|::|DEFSTRUCT-DESCRIPTION|
+   (|COMMON-LISP|::|VECTOR| '|COMMON-LISP|::|VECTOR| 3.
+    '|COMMON-LISP-USER|::|MAKE-DCB|
+    (|COMMON-LISP|::|LIST|
+     (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+      |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME|
+      '|COMMON-LISP|::|NIL| :|INITARGS| '|COMMON-LISP|::|NIL| :|TYPE|
+      '|COMMON-LISP|::|SYMBOL| :|ALLOCATION| ':|INSTANCE|
+      #1='|CLOS|::|INHERITABLE-INITER|
+      (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER|
+       ''|COMMON-LISP-USER|::|DCB|
+       (|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| '|COMMON-LISP-USER|::|DCB|))
+      #2='|CLOS|::|INHERITABLE-DOC| '(|COMMON-LISP|::|NIL|)
+      #3='|CLOS|::|LOCATION| '0. #4='|CLOS|::|READONLY| '|COMMON-LISP|::|T|)
+     (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+      |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME|
+      '|COMMON-LISP-USER|::|INPUT| :|INITARGS| '#5=(:|INPUT|) :|TYPE|
+      '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE| #1#
+      (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '#6=0.0f0
+       #7=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| #6#))
+      #2# '(|COMMON-LISP|::|NIL|) #3# '1. #4# '|COMMON-LISP|::|NIL|)
+     (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+      |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME|
+      '|COMMON-LISP-USER|::|OUTPUT| :|INITARGS| '#8=(:|OUTPUT|) :|TYPE|
+      '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE| #1#
+      (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '#6#
+       #9=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| #6#))
+      #2# '(|COMMON-LISP|::|NIL|) #3# '2. #4# '|COMMON-LISP|::|NIL|))
+    (|COMMON-LISP|::|LIST|
+     (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+      |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME|
+      '|COMMON-LISP-USER|::|INPUT| :|INITARGS| '#5# :|TYPE| '|COMMON-LISP|::|T|
+      :|ALLOCATION| ':|INSTANCE| #10='|CLOS|::|INHERITABLE-INITER|
+      (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '#6# #7#)
+      #11='|CLOS|::|INHERITABLE-DOC| '(|COMMON-LISP|::|NIL|) :|READERS|
+      '(|COMMON-LISP-USER|::|DCB-INPUT|) :|WRITERS|
+      '((|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)))
+     (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+      |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME|
+      '|COMMON-LISP-USER|::|OUTPUT| :|INITARGS| '#8# :|TYPE|
+      '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE| #10#
+      (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '#6# #9#) #11#
+      '(|COMMON-LISP|::|NIL|) :|READERS| '(|COMMON-LISP-USER|::|DCB-OUTPUT|)
+      :|WRITERS| '((|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|))))
+    '|COMMON-LISP|::|NIL| '|COMMON-LISP-USER|::|COPY-DCB|
+    '|COMMON-LISP-USER|::|DCB-P|))
+  (|CLOS|::|UNDEFINE-STRUCTURE-CLASS| '|COMMON-LISP-USER|::|DCB|)
+  (|SYSTEM|::|%SET-DOCUMENTATION| '|COMMON-LISP-USER|::|DCB|
+   '|COMMON-LISP|::|TYPE| '|COMMON-LISP|::|NIL|)
+  (|COMMON-LISP|::|DEFUN| |COMMON-LISP-USER|::|MAKE-DCB|
+   (|COMMON-LISP|::|&KEY| (#12=#:|INPUT| #6#) (#13=#:|OUTPUT| #6#))
+   (|COMMON-LISP|::|VECTOR| '|COMMON-LISP-USER|::|DCB|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #12#)
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #13#))))
+ (|COMMON-LISP|::|DEFUN| |COMMON-LISP-USER|::|DCB-P| (|SYSTEM|::|OBJECT|)
+  (|COMMON-LISP|::|AND| (|COMMON-LISP|::|SIMPLE-VECTOR-P| |SYSTEM|::|OBJECT|)
+   (|COMMON-LISP|::|>=| (|COMMON-LISP|::|LENGTH| |SYSTEM|::|OBJECT|) 3.)
+   (|COMMON-LISP|::|EQ| (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 0.)
+    '|COMMON-LISP-USER|::|DCB|)))
+ (|COMMON-LISP|::|DEFUN| |COMMON-LISP-USER|::|COPY-DCB|
+  (|COMMON-LISP|::|STRUCTURE|)
+  (|SYSTEM|::|%COPY-SIMPLE-VECTOR| |COMMON-LISP|::|STRUCTURE|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|DCB-INPUT|
+    (|COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| |COMMON-LISP-USER|::|DCB-INPUT|))
+ (|COMMON-LISP|::|DEFUN| |COMMON-LISP-USER|::|DCB-INPUT|
+  #14=(|SYSTEM|::|OBJECT|)
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 1.)))
+ (|SYSTEM|::|%PUT| '|COMMON-LISP-USER|::|DCB-INPUT|
+  #15='|SYSTEM|::|DEFSTRUCT-READER| '|COMMON-LISP-USER|::|DCB|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|DCB-OUTPUT|
+    (|COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| |COMMON-LISP-USER|::|DCB-OUTPUT|))
+ (|COMMON-LISP|::|DEFUN| |COMMON-LISP-USER|::|DCB-OUTPUT| #14#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 2.)))
+ (|SYSTEM|::|%PUT| '|COMMON-LISP-USER|::|DCB-OUTPUT| #15#
+  '|COMMON-LISP-USER|::|DCB|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION|
+    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)
+    (|COMMON-LISP|::|T| |COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE|
+    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)))
+ (|COMMON-LISP|::|DEFUN|
+  (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)
+  #16=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|)
+  (|COMMON-LISP|::|SETF| (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 1.) .
+   #17=(|SYSTEM|::|VALUE|)))
+ (|SYSTEM|::|%PUT| '|COMMON-LISP-USER|::|DCB-INPUT|
+  #18='|SYSTEM|::|DEFSTRUCT-WRITER| '|COMMON-LISP-USER|::|DCB|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION|
+    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|)
+    (|COMMON-LISP|::|T| |COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE|
+    (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|)))
+ (|COMMON-LISP|::|DEFUN|
+  (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|) #16#
+  (|COMMON-LISP|::|SETF| (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 2.) .
+   #17#))
+ (|SYSTEM|::|%PUT| '|COMMON-LISP-USER|::|DCB-OUTPUT| #18#
+  '|COMMON-LISP-USER|::|DCB|)
+ '|COMMON-LISP-USER|::|DCB|)
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|MAKE-DCB|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&KEY| (#:|INPUT| #1=0.0f0) (#:|OUTPUT| #1#))))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|DCB-P|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|SYSTEM|::|OBJECT|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|COPY-DCB|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP|::|STRUCTURE|)))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|DCB-INPUT|
+   (|COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| |COMMON-LISP-USER|::|DCB-INPUT|))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|DCB-INPUT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1#
+   (|COMMON-LISP|::|DECLARE|
+    (|SYSTEM|::|IN-DEFUN| |COMMON-LISP-USER|::|DCB-INPUT|))
+   (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|DCB-INPUT|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 1.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|DCB-OUTPUT|
+   (|COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| |COMMON-LISP-USER|::|DCB-OUTPUT|))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|DCB-OUTPUT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1#
+   (|COMMON-LISP|::|DECLARE|
+    (|SYSTEM|::|IN-DEFUN| |COMMON-LISP-USER|::|DCB-OUTPUT|))
+   (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|DCB-OUTPUT|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 2.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION|
+   (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)
+   (|COMMON-LISP|::|T| |COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE|
+   (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)))
+(|SYSTEM|::|C-DEFUN|
+ '#1=(|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-INPUT|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|DCB-INPUT|
+    (|COMMON-LISP|::|SETF| (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 1.)
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION|
+   (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|)
+   (|COMMON-LISP|::|T| |COMMON-LISP-USER|::|DCB|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE|
+   (|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|)))
+(|SYSTEM|::|C-DEFUN|
+ '#1=(|COMMON-LISP|::|SETF| |COMMON-LISP-USER|::|DCB-OUTPUT|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|DCB-OUTPUT|
+    (|COMMON-LISP|::|SETF| (|COMMON-LISP|::|SVREF| |SYSTEM|::|OBJECT| 2.)
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|COMMON-LISP-USER|::|DCBLOCK|)
+(|SYSTEM|::|%PUTD| '|COMMON-LISP-USER|::|DCBLOCK|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|DCBLOCK|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|COMMON-LISP-USER|::|B|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|COMMON-LISP-USER|::|SAMPLE0| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|DCBLOCK|
+       `(|COMMON-LISP|::|LET|
+         ((|COMMON-LISP-USER|::|SAMPLE| ,|COMMON-LISP-USER|::|SAMPLE0|))
+         (|COMMON-LISP|::|PROG1|
+          (|COMMON-LISP|::|SETF|
+           (|COMMON-LISP-USER|::|DCB-OUTPUT| ,|COMMON-LISP-USER|::|B|)
+           (|COMMON-LISP|::|+| |COMMON-LISP-USER|::|SAMPLE|
+            (|COMMON-LISP|::|-|
+             (|COMMON-LISP|::|*| 0.99f0
+              (|COMMON-LISP-USER|::|DCB-OUTPUT| ,|COMMON-LISP-USER|::|B|))
+             (|COMMON-LISP-USER|::|DCB-INPUT| ,|COMMON-LISP-USER|::|B|))))
+          (|COMMON-LISP|::|SETF|
+           (|COMMON-LISP-USER|::|DCB-INPUT| ,|COMMON-LISP-USER|::|B|)
+           |COMMON-LISP-USER|::|SAMPLE|))))))))
+  '(|COMMON-LISP-USER|::|B| |COMMON-LISP-USER|::|SAMPLE0|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|clm_bow2|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_bow2")
+        (:|LIBRARY| (|CLM|::|EXPAND-FILENAME->STRING| "clm_BOW_0.so"))
+        (:|LANGUAGE| :|STDC|) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS|
+         (|CLM|::|DATAR| (|FFI|::|C-ARRAY-PTR| |COMMON-LISP|::|DOUBLE-FLOAT|))
+         (|CLM|::|LEN| |FFI|::|INT|)
+         (|CLM|::|DATAI| (|FFI|::|C-ARRAY-PTR| |FFI|::|INT|))
+         (|CLM|::|ILEN| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |COMMON-LISP-USER|::|clm_bow2| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|BOW|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|BEG| |COMMON-LISP-USER|::|DUR|
+    |COMMON-LISP-USER|::|FRQ| |COMMON-LISP-USER|::|AMPLITUDE|
+    |COMMON-LISP|::|&KEY| (|COMMON-LISP-USER|::|BUFSIZE| 2205.)
+    (|COMMON-LISP-USER|::|FB| 0.25f0) (|COMMON-LISP-USER|::|VB| 0.2f0)
+    (|COMMON-LISP-USER|::|BP| 0.25f0)
+    (|COMMON-LISP-USER|::|FBENV| '(0. 1.0f0 100. 0.9f0))
+    (|COMMON-LISP-USER|::|VBENV| '(0. 1.0f0 100. 0.25f0))
+    (|COMMON-LISP-USER|::|INHARM| 0.1f0)
+    (|COMMON-LISP-USER|::|AMPENV| '(0. 0. 45. 1. 80. 0.75f0 98. 0.0f0 100. 0.))
+    (|COMMON-LISP-USER|::|VIBAMP| 1.0f0)
+    (|COMMON-LISP-USER|::|VIBENV|
+     '(0. 0. 30. 0.25f0 40. 1. 65. 0.15f0 97. 0. 100. 0.))
+    (|COMMON-LISP-USER|::|VIBFRQ| 7.) (|COMMON-LISP-USER|::|DEGREE| 45.)
+    (|COMMON-LISP-USER|::|DIST| 0.0025f0)
+    (|COMMON-LISP-USER|::|REVERB| 0.005f0))))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|BOW1|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))

@@ -1,0 +1,1475 @@
+#0Y_ #0Y |CHARSET|::|UTF-8|
+(|COMMON-LISP|::|SETQ| |COMMON-LISP|::|*PACKAGE*|
+ (|SYSTEM|::|%FIND-PACKAGE| "CLM"))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*OPEN-INPUT-EXPLICIT-OUTPUT*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*OPEN-INPUT-EXPLICIT-REVERB*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*OPEN-INPUT-VERBOSE*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*OPEN-INPUT-PATHNAME*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*OPEN-INPUT-TRUENAME*|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-SCALED-AMP*|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|LAST-DAC-FILENAME|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-DAC-WAIT-DEFAULT*|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|PLAY|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|NAME-1| |COMMON-LISP|::|&KEY|
+    |CLM|::|START| |CLM|::|END|
+    (|POSIX|::|WAIT| |CLM|::|*CLM-DAC-WAIT-DEFAULT*|))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|STOP-PLAYING|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|DAC|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|NAME-1| |COMMON-LISP|::|&KEY|
+    |CLM|::|START| |CLM|::|END|
+    (|POSIX|::|WAIT| |CLM|::|*CLM-DAC-WAIT-DEFAULT*|))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|STOP-DAC|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*FORCE-RECOMPUTATION*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-WITH-SOUND-DEPTH*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-WITHIN-WITH-SOUND*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-WITH-SOUND-BODY*|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-RESET|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CHECK-FOR-RESET|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CL-PRINTF|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|S|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-REPORTS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|STR|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SCALE-TO-FILE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|OUT-FILE| |CLM|::|SCALED-TO| |COMMON-LISP|::|&OPTIONAL|
+    |CLM|::|DATA-FORMAT| |CLM|::|STATS| |CLM|::|HEADER-TYPE|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SCALE-BY-FILE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|OUT-FILE| |CLM|::|SCALED-BY| |COMMON-LISP|::|&OPTIONAL|
+    |CLM|::|DATA-FORMAT| |CLM|::|STATS| |CLM|::|HEADER-TYPE|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MAKE-DEFAULT-COMMENT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|COMMENT| |CLM|::|INFO| |CLM|::|SAVE-BODY|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|BEGIN-WITH-SOUND|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|SRATE| |CLM|::|CHANNELS| |CLM|::|SCALED-TO| |CLM|::|OUT-FILE|
+    |CLM|::|REVF| |CLM|::|STATISTICS| |CLM|::|CONTINUE-OLD-FILE|
+    |CLM|::|REVERB-CHANNELS| |CLM|::|HEADER-TYPE| |CLM|::|DATA-FORMAT|
+    |CLM|::|CLIPPED| |CLM|::|SCALED-BY| |CLM|::|COMMENT|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|END-WITH-SOUND|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|SCALED-TO| |CLM|::|OUT-FILE| |CLM|::|REVF| |CLM|::|STATISTICS|
+    |CLM|::|HEADER-TYPE| |CLM|::|DATA-FORMAT| |CLM|::|REVERB|
+    |CLM|::|DECAY-TIME| |CLM|::|REVERB-DATA| |CLM|::|CHANNELS| |CLM|::|PLAY|
+    |CLM|::|SCALED-BY|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|WITH-OFFSET|)
+(|SYSTEM|::|%PUTD| '|CLM|::|WITH-OFFSET|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|WITH-OFFSET|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|VAL| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|WITH-OFFSET|
+       `(|COMMON-LISP|::|LET|
+         ((|CLM|::|*OFFSET*|
+           (|COMMON-LISP|::|+| |CLM|::|*OFFSET*|
+            (|COMMON-LISP|::|ROUND|
+             (|COMMON-LISP|::|*| ,|CLM|::|VAL| |CLM|::|*SRATE*|)))))
+         ,.|CLM|::|BODY|))))))
+  '(|CLM|::|VAL| |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*WS-REVERB-FILE*|))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|WITH-SOUND|)
+(|SYSTEM|::|%PUTD| '|CLM|::|WITH-SOUND|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|WITH-SOUND|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((#1=#:|G60804| (|COMMON-LISP|::|CADR| . #2=(|SYSTEM|::|<MACRO-FORM>|)))
+       (#3=#:|G60805| #1#) (#4=#:|G60806| #3#)
+       (|CLM|::|OUTPUT|
+        (|COMMON-LISP|::|LET|
+         ((#5=#:|KWD-ARG-60807|
+           (|COMMON-LISP|::|GETF| #4# ':|OUTPUT| '#6=(|COMMON-LISP|::|NIL|))))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #5# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-FILE-NAME*|) #5#)))
+       (|CLM|::|CONTINUE-OLD-FILE|
+        (|COMMON-LISP|::|GETF| #4# ':|CONTINUE-OLD-FILE| .
+         #7=(|COMMON-LISP|::|NIL|)))
+       (|CLM|::|CHANNELS|
+        (|COMMON-LISP|::|LET|
+         ((#8=#:|KWD-ARG-60808| (|COMMON-LISP|::|GETF| #4# ':|CHANNELS| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #8# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-CHANNELS*|) #8#)))
+       (|CLM|::|INFO| (|COMMON-LISP|::|GETF| #4# ':|INFO| . #7#))
+       (|CLM|::|COMMENT| (|COMMON-LISP|::|GETF| #4# ':|COMMENT| . #7#))
+       (|CLM|::|SRATE|
+        (|COMMON-LISP|::|LET|
+         ((#9=#:|KWD-ARG-60809| (|COMMON-LISP|::|GETF| #4# ':|SRATE| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #9# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-SRATE*|) #9#)))
+       (|CLM|::|REVERB| (|COMMON-LISP|::|GETF| #4# ':|REVERB| . #7#))
+       (|CLM|::|REVERB-DATA| (|COMMON-LISP|::|GETF| #4# ':|REVERB-DATA| . #7#))
+       (|CLM|::|REVERB-CHANNELS|
+        (|COMMON-LISP|::|LET|
+         ((#10=#:|KWD-ARG-60810|
+           (|COMMON-LISP|::|GETF| #4# ':|REVERB-CHANNELS| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #10# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-REVERB-CHANNELS*|) #10#)))
+       (|CLM|::|REVFILE| (|COMMON-LISP|::|GETF| #4# ':|REVFILE| . #7#))
+       (|CLM|::|DECAY-TIME|
+        (|COMMON-LISP|::|LET|
+         ((#11=#:|KWD-ARG-60811|
+           (|COMMON-LISP|::|GETF| #4# ':|DECAY-TIME| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #11# '#6#)
+          (|COMMON-LISP|::|PROGN| #12=1.0f0) #11#)))
+       (|CLM|::|REVERB-FUNC| (|COMMON-LISP|::|GETF| #4# ':|REVERB-FUNC| . #7#))
+       (|CLM|::|REVERB-ARGS| (|COMMON-LISP|::|GETF| #4# ':|REVERB-ARGS| . #7#))
+       (|CLM|::|PLAY|
+        (|COMMON-LISP|::|LET|
+         ((#13=#:|KWD-ARG-60812| (|COMMON-LISP|::|GETF| #4# ':|PLAY| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #13# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-PLAY*|) #13#)))
+       (|CLM|::|FORCE-RECOMPUTATION|
+        (|COMMON-LISP|::|GETF| #4# ':|FORCE-RECOMPUTATION| . #7#))
+       (|CLM|::|NOTEHOOK|
+        (|COMMON-LISP|::|LET|
+         ((#14=#:|KWD-ARG-60813|
+           (|COMMON-LISP|::|GETF| #4# ':|NOTEHOOK| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #14# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-NOTEHOOK*|) #14#)))
+       (|CLM|::|STATISTICS|
+        (|COMMON-LISP|::|LET|
+         ((#15=#:|KWD-ARG-60814|
+           (|COMMON-LISP|::|GETF| #4# ':|STATISTICS| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #15# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-STATISTICS*|) #15#)))
+       (|CLM|::|HEADER-TYPE|
+        (|COMMON-LISP|::|LET|
+         ((#16=#:|KWD-ARG-60815|
+           (|COMMON-LISP|::|GETF| #4# ':|HEADER-TYPE| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #16# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-HEADER-TYPE*|) #16#)))
+       (|CLM|::|DATA-FORMAT|
+        (|COMMON-LISP|::|LET|
+         ((#17=#:|KWD-ARG-60816|
+           (|COMMON-LISP|::|GETF| #4# ':|DATA-FORMAT| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #17# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-DATA-FORMAT*|) #17#)))
+       (|CLM|::|SAVE-BODY| (|COMMON-LISP|::|GETF| #4# ':|SAVE-BODY| . #7#))
+       (|CLM|::|VERBOSE|
+        (|COMMON-LISP|::|LET|
+         ((#18=#:|KWD-ARG-60817| (|COMMON-LISP|::|GETF| #4# ':|VERBOSE| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #18# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-VERBOSE*|) #18#)))
+       (|CLM|::|SCALED-TO| (|COMMON-LISP|::|GETF| #4# ':|SCALED-TO| . #7#))
+       (|CLM|::|CLIPPED|
+        (|COMMON-LISP|::|LET|
+         ((#19=#:|KWD-ARG-60818| (|COMMON-LISP|::|GETF| #4# ':|CLIPPED| '#6#)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|EQ| #19# '#6#)
+          (|COMMON-LISP|::|PROGN| |CLM|::|*CLM-CLIPPED*|) #19#)))
+       (|CLM|::|SCALED-BY| (|COMMON-LISP|::|GETF| #4# ':|SCALED-BY| . #7#))
+       (|CLM|::|SAMPLING-RATE|
+        (|COMMON-LISP|::|GETF| #4# ':|SAMPLING-RATE| . #7#))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDR| . #2#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|WITH-SOUND|
+       `(|COMMON-LISP|::|LET|
+         ((|CLM|::|*VERBOSE*| ,|CLM|::|VERBOSE|) (|CLM|::|*OFFSET*| 0.)
+          (|CLM|::|*INTERRUPTED*| 0.)
+          (|CLM|::|*STATISTICS*| |COMMON-LISP|::|NIL|)
+          (|CLM|::|*CLM-SCALED-AMP*| |COMMON-LISP|::|NIL|)
+          (|CLM|::|*NOTEHOOK*| ,|CLM|::|NOTEHOOK|)
+          (|CLM|::|*FORCE-RECOMPUTATION*| ,|CLM|::|FORCE-RECOMPUTATION|)
+          (|CLM|::|*CLM-WITH-SOUND-BODY*|
+           (|COMMON-LISP|::|AND| ,|CLM|::|SAVE-BODY| ',|CLM|::|BODY|))
+          (|CLM|::|*CHANNELS*| ,|CLM|::|CHANNELS|)
+          (|CLM|::|*SRATE*|
+           ,(|COMMON-LISP|::|OR| |CLM|::|SAMPLING-RATE| |CLM|::|SRATE|))
+          (|CLM|::|*HEADER-TYPE*| ,|CLM|::|HEADER-TYPE|)
+          (|CLM|::|*DATA-FORMAT*| ,|CLM|::|DATA-FORMAT|)
+          (|CLM|::|*CLIPPED*| ,|CLM|::|CLIPPED|))
+         (|CLM|::|CLM-INITIALIZE-LINKS|)
+         (|COMMON-LISP|::|SETF| |CLM|::|*CLM-INS*| |COMMON-LISP|::|NIL|)
+         (|COMMON-LISP|::|LET*|
+          ((|CLM|::|OLD-OUTPUT| |CLM|::|*OUTPUT*|)
+           (|CLM|::|OLD-REVERB| |CLM|::|*REVERB*|))
+          (|COMMON-LISP|::|IF| |CLM|::|OLD-OUTPUT| (|CLM|::|CLM-CLOSE-OUTPUT|))
+          (|COMMON-LISP|::|IF| |CLM|::|OLD-REVERB| (|CLM|::|CLM-CLOSE-REVERB|))
+          (|COMMON-LISP|::|UNWIND-PROTECT|
+           (|COMMON-LISP|::|LET*|
+            ((|CLM|::|OUT-FILE|
+              (|COMMON-LISP|::|OR| |CLM|::|*OPEN-INPUT-EXPLICIT-OUTPUT*|
+               (|CLM|::|FILENAME->STRING|
+                (|CLM|::|FULL-MERGE-PATHNAMES|
+                 (|COMMON-LISP|::|TRANSLATE-LOGICAL-PATHNAME|
+                  (|CLM|::|->PATHNAME|
+                   (|CLM|::|FILENAME->STRING| ,|CLM|::|OUTPUT|)))
+                 |CLM|::|*CLM-FILE-NAME*|))))
+             (|CLM|::|*CLM-WITH-SOUND-DEPTH*|
+              (|COMMON-LISP|::|1+| |CLM|::|*CLM-WITH-SOUND-DEPTH*|))
+             (|CLM|::|OUR-SRATE|
+              ,(|COMMON-LISP|::|OR| |CLM|::|SAMPLING-RATE| |CLM|::|SRATE|))
+             (|CLM|::|OUR-TYPE| ,|CLM|::|HEADER-TYPE|)
+             (|CLM|::|OUR-FORMAT|
+              (|COMMON-LISP|::|LET|
+               ((|CLM|::|FIRST-GUESS| ,|CLM|::|DATA-FORMAT|))
+               (|COMMON-LISP|::|IF|
+                (|COMMON-LISP|::|AND|
+                 (|COMMON-LISP|::|=| |CLM|::|FIRST-GUESS| |CLM|::|MUS-BSHORT|)
+                 (|COMMON-LISP|::|=| |CLM|::|OUR-TYPE| |CLM|::|MUS-RIFF|))
+                |CLM|::|MUS-LSHORT|
+                (|COMMON-LISP|::|IF|
+                 (|COMMON-LISP|::|AND|
+                  (|COMMON-LISP|::|=| |CLM|::|FIRST-GUESS| |CLM|::|MUS-BINT|)
+                  (|COMMON-LISP|::|=| |CLM|::|OUR-TYPE| |CLM|::|MUS-RIFF|))
+                 |CLM|::|MUS-LINT| |CLM|::|FIRST-GUESS|))))
+             (|CLM|::|OUR-REVERB|
+              (|COMMON-LISP|::|OR| ,|CLM|::|REVERB-FUNC| ',|CLM|::|REVERB|))
+             (|CLM|::|OUR-REVERB-DATA|
+              (|COMMON-LISP|::|OR| ,|CLM|::|REVERB-ARGS|
+               ',|CLM|::|REVERB-DATA|))
+             (|CLM|::|REVERB-FILENAME|
+              (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING|
+               (|COMMON-LISP|::|SUBSEQ| |CLM|::|OUT-FILE| 0.
+                (|COMMON-LISP|::|-| (|COMMON-LISP|::|LENGTH| |CLM|::|OUT-FILE|)
+                 (|COMMON-LISP|::|LENGTH|
+                  (|COMMON-LISP|::|PATHNAME-TYPE| |CLM|::|OUT-FILE|))))
+               "reverb"))
+             (|CLM|::|REVF|
+              (|COMMON-LISP|::|IF|
+               (|COMMON-LISP|::|OR| ,|CLM|::|REVFILE| |CLM|::|OUR-REVERB|)
+               (|COMMON-LISP|::|OR| ,|CLM|::|REVFILE|
+                |CLM|::|*OPEN-INPUT-EXPLICIT-REVERB*|
+                |CLM|::|REVERB-FILENAME|)))
+             (|CLM|::|*WS-REVERB-FILE*| |CLM|::|REVF|))
+            (|COMMON-LISP|::|IF|
+             (|COMMON-LISP|::|AND|
+              (|CLM|::|FRAMPLE->FILE?| |CLM|::|OLD-OUTPUT|)
+              (|COMMON-LISP|::|STRING=| |CLM|::|OUT-FILE|
+               (|CLM|::|MUS-FILE-NAME| |CLM|::|OLD-OUTPUT|)))
+             (|COMMON-LISP|::|WARN| "we're about to overwrite ~A..."
+              |CLM|::|OUT-FILE|))
+            (|COMMON-LISP|::|SETF| |CLM|::|OUT-FILE|
+             (|CLM|::|BEGIN-WITH-SOUND| |CLM|::|OUR-SRATE| ,|CLM|::|CHANNELS|
+              ,|CLM|::|SCALED-TO| |CLM|::|OUT-FILE| |CLM|::|REVF|
+              ,|CLM|::|STATISTICS| ,|CLM|::|CONTINUE-OLD-FILE|
+              ,|CLM|::|REVERB-CHANNELS| |CLM|::|OUR-TYPE| |CLM|::|OUR-FORMAT|
+              ,|CLM|::|CLIPPED| ,|CLM|::|SCALED-BY|
+              (|COMMON-LISP|::|AND|
+               (|COMMON-LISP|::|NOT|
+                (|COMMON-LISP|::|EQ| ,|CLM|::|COMMENT| :|NONE|))
+               (|CLM|::|MAKE-DEFAULT-COMMENT| ,|CLM|::|COMMENT| ,|CLM|::|INFO|
+                ,|CLM|::|SAVE-BODY|))))
+            (|COMMON-LISP|::|IF| |CLM|::|OUT-FILE|
+             (|COMMON-LISP|::|TAGBODY|
+              (|COMMON-LISP|::|RESTART-CASE|
+               (|COMMON-LISP|::|CATCH| :|FINISH| ,.|CLM|::|BODY|)
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| :|REPORT|
+                "close files and return to top-level."
+                (|COMMON-LISP|::|PROGN| (|CLM|::|CLM-RESET|)
+                 (|COMMON-LISP|::|GO| |CLM|::|ALL-DONE|)))
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| :|REPORT|
+                "jump past remaining notes."
+                (|COMMON-LISP|::|GO| |CLM|::|NORMAL-FINISH|)))
+              |CLM|::|NORMAL-FINISH|
+              (|COMMON-LISP|::|SETF| |CLM|::|OUT-FILE|
+               (|CLM|::|END-WITH-SOUND| ,|CLM|::|SCALED-TO| |CLM|::|OUT-FILE|
+                |CLM|::|REVF| ,|CLM|::|STATISTICS| |CLM|::|OUR-TYPE|
+                |CLM|::|OUR-FORMAT| |CLM|::|OUR-REVERB| ,|CLM|::|DECAY-TIME|
+                |CLM|::|OUR-REVERB-DATA| ,|CLM|::|CHANNELS| ,|CLM|::|PLAY|
+                ,|CLM|::|SCALED-BY|))
+              |CLM|::|ALL-DONE|))
+            (|COMMON-LISP|::|IF| |CLM|::|OLD-OUTPUT|
+             (|COMMON-LISP|::|PROGN|
+              (|CLM|::|CLM-CONTINUE-OUTPUT|
+               (|CLM|::|MUS-FILE-NAME| |CLM|::|OLD-OUTPUT|))
+              (|COMMON-LISP|::|SETF| |CLM|::|*OUTPUT*| |CLM|::|OLD-OUTPUT|)))
+            (|COMMON-LISP|::|IF| |CLM|::|OLD-REVERB|
+             (|COMMON-LISP|::|PROGN|
+              (|CLM|::|CLM-CONTINUE-REVERB|
+               (|CLM|::|MUS-FILE-NAME| |CLM|::|OLD-REVERB|))
+              (|COMMON-LISP|::|SETF| |CLM|::|*REVERB*| |CLM|::|OLD-REVERB|))
+             (|COMMON-LISP|::|SETF| |CLM|::|*REVERB*| |COMMON-LISP|::|NIL|))
+            |CLM|::|OUT-FILE|)
+           (|COMMON-LISP|::|PROGN|
+            (|COMMON-LISP|::|SETF| |CLM|::|*CLM-INS*| |COMMON-LISP|::|NIL|)
+            (|COMMON-LISP|::|SETF| |CLM|::|*FORCE-RECOMPUTATION*|
+             |COMMON-LISP|::|NIL|)
+            (|CLM|::|CLM-CHECK-FOR-RESET|))))))))))
+  '((|COMMON-LISP|::|&KEY| (|CLM|::|OUTPUT| |CLM|::|*CLM-FILE-NAME*|)
+     |CLM|::|CONTINUE-OLD-FILE| (|CLM|::|CHANNELS| |CLM|::|*CLM-CHANNELS*|)
+     |CLM|::|INFO| |CLM|::|COMMENT| (|CLM|::|SRATE| |CLM|::|*CLM-SRATE*|)
+     |CLM|::|REVERB| |CLM|::|REVERB-DATA|
+     (|CLM|::|REVERB-CHANNELS| |CLM|::|*CLM-REVERB-CHANNELS*|) |CLM|::|REVFILE|
+     (|CLM|::|DECAY-TIME| #12#) |CLM|::|REVERB-FUNC| |CLM|::|REVERB-ARGS|
+     (|CLM|::|PLAY| |CLM|::|*CLM-PLAY*|) |CLM|::|FORCE-RECOMPUTATION|
+     (|CLM|::|NOTEHOOK| |CLM|::|*CLM-NOTEHOOK*|)
+     (|CLM|::|STATISTICS| |CLM|::|*CLM-STATISTICS*|)
+     (|CLM|::|HEADER-TYPE| |CLM|::|*CLM-HEADER-TYPE*|)
+     (|CLM|::|DATA-FORMAT| |CLM|::|*CLM-DATA-FORMAT*|) |CLM|::|SAVE-BODY|
+     (|CLM|::|VERBOSE| |CLM|::|*CLM-VERBOSE*|) |CLM|::|SCALED-TO|
+     (|CLM|::|CLIPPED| |CLM|::|*CLM-CLIPPED*|) |CLM|::|SCALED-BY|
+     |CLM|::|SAMPLING-RATE| |COMMON-LISP|::|&ALLOW-OTHER-KEYS|)
+    |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-THREADS*|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-LOAD|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|PATHNAME| |COMMON-LISP|::|&KEY|
+    (|CLM|::|OUTPUT| |CLM|::|*CLM-FILE-NAME*|) |CLM|::|CONTINUE-OLD-FILE|
+    (|CLM|::|CHANNELS| |CLM|::|*CLM-CHANNELS*|) |CLM|::|INFO| |CLM|::|COMMENT|
+    (|CLM|::|SRATE| |CLM|::|*CLM-SRATE*|) |CLM|::|REVERB| |CLM|::|REVERB-DATA|
+    (|CLM|::|REVERB-CHANNELS| 1.) |CLM|::|REVFILE| (|CLM|::|DECAY-TIME| 1.0f0)
+    (|CLM|::|PLAY| |CLM|::|*CLM-PLAY*|) |CLM|::|FORCE-RECOMPUTATION|
+    (|CLM|::|NOTEHOOK| |CLM|::|*CLM-NOTEHOOK*|) |CLM|::|STATISTICS|
+    (|CLM|::|HEADER-TYPE| |CLM|::|*CLM-HEADER-TYPE*|)
+    (|CLM|::|DATA-FORMAT| |CLM|::|*CLM-DATA-FORMAT*|) |CLM|::|SAVE-BODY|
+    (|CLM|::|VERBOSE| |CLM|::|*CLM-VERBOSE*|) |CLM|::|SCALED-TO|
+    (|CLM|::|CLIPPED| |CLM|::|*CLM-CLIPPED*|) |CLM|::|SCALED-BY|
+    (|CLM|::|LOAD-PACKAGE| |COMMON-LISP|::|*PACKAGE*|) |CLM|::|SAMPLING-RATE|
+    |COMMON-LISP|::|&ALLOW-OTHER-KEYS|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|WITH-CURRENT-SOUND|)
+(|SYSTEM|::|%PUTD| '|CLM|::|WITH-CURRENT-SOUND|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|WITH-CURRENT-SOUND|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((#1=#:|G60995| (|COMMON-LISP|::|CADR| . #2=(|SYSTEM|::|<MACRO-FORM>|)))
+       (#3=#:|G60996| #1#) (#4=#:|G60997| #3#)
+       (|CLM|::|OUTPUT|
+        (|COMMON-LISP|::|GETF| #4# ':|OUTPUT| . #5=(|COMMON-LISP|::|NIL|)))
+       (|CLM|::|COMMENT| (|COMMON-LISP|::|GETF| #4# ':|COMMENT| . #5#))
+       (|CLM|::|SCALED-TO| (|COMMON-LISP|::|GETF| #4# ':|SCALED-TO| . #5#))
+       (|CLM|::|SCALED-BY| (|COMMON-LISP|::|GETF| #4# ':|SCALED-BY| . #5#))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDR| . #2#)))
+      (|SYSTEM|::|KEYWORD-TEST| #4#
+       '(:|SCALED-BY| :|SCALED-TO| :|COMMENT| :|OUTPUT|))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|WITH-CURRENT-SOUND|
+       `(|CLM|::|WITH-SOUND|
+         (:|OUTPUT| ,|CLM|::|OUTPUT| :|CHANNELS| |CLM|::|*CHANNELS*| :|COMMENT|
+          ,|CLM|::|COMMENT| :|SRATE| |CLM|::|*SRATE*| :|REVFILE|
+          |CLM|::|*WS-REVERB-FILE*| :|FORCE-RECOMPUTATION|
+          |CLM|::|*FORCE-RECOMPUTATION*| :|NOTEHOOK| |CLM|::|*NOTEHOOK*|
+          :|HEADER-TYPE| |CLM|::|*HEADER-TYPE*| :|DATA-FORMAT|
+          |CLM|::|*DATA-FORMAT*| :|VERBOSE| |CLM|::|*VERBOSE*| :|CLIPPED|
+          |CLM|::|*CLIPPED*| :|SCALED-TO| ,|CLM|::|SCALED-TO| :|SCALED-BY|
+          ,|CLM|::|SCALED-BY|)
+         ,.|CLM|::|BODY|))))))
+  '((|COMMON-LISP|::|&KEY| |CLM|::|OUTPUT| |CLM|::|COMMENT| |CLM|::|SCALED-TO|
+     |CLM|::|SCALED-BY|)
+    |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|SCALED-BY|)
+(|SYSTEM|::|%PUTD| '|CLM|::|SCALED-BY|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|SCALED-BY|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|VAL| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|SCALED-BY|
+       `(|COMMON-LISP|::|LET| ((|CLM|::|TEMPF| "temp_clm_scaling.snd"))
+         (|CLM|::|WITH-CURRENT-SOUND|
+          (:|OUTPUT| |CLM|::|TEMPF| :|SCALED-BY| ,|CLM|::|VAL|)
+          ,.|CLM|::|BODY|)
+         (|CLM|::|MIX| |CLM|::|TEMPF|)
+         (|COMMON-LISP|::|DELETE-FILE| |CLM|::|TEMPF|)))))))
+  '(|CLM|::|VAL| |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|SCALED-TO|)
+(|SYSTEM|::|%PUTD| '|CLM|::|SCALED-TO|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|SCALED-TO|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|VAL| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|SCALED-TO|
+       `(|COMMON-LISP|::|LET| ((|CLM|::|TEMPF| "temp_clm_scaling.snd"))
+         (|CLM|::|WITH-CURRENT-SOUND|
+          (:|OUTPUT| |CLM|::|TEMPF| :|SCALED-TO| ,|CLM|::|VAL|)
+          ,.|CLM|::|BODY|)
+         (|CLM|::|MIX| |CLM|::|TEMPF|)
+         (|COMMON-LISP|::|DELETE-FILE| |CLM|::|TEMPF|)))))))
+  '(|CLM|::|VAL| |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MIX-WRAPPER|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|FILE| |CLM|::|OUTPUT-SAMPLE| |CLM|::|INPUT-FILE| |CLM|::|DUR|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MAKE-TYPED-FILE-NAME|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME| |CLM|::|EXT|)))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|LAST-OPEN-INPUT-FILE-NAME|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|OPEN-INPUT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|NAME| |COMMON-LISP|::|&KEY|
+    (|CLM|::|VERBOSE| |COMMON-LISP|::|NIL| |CLM|::|VERBOSE-P|)
+    (|CLM|::|ELEMENT-TYPE| |COMMON-LISP|::|NIL| |CLM|::|ELEMENT-P|)
+    (|CLM|::|IF-DOES-NOT-EXIST| :|ERROR|)
+    (|CLM|::|MIX-AT| |COMMON-LISP|::|NIL|)
+    (|CLM|::|MIX-DURATION| |COMMON-LISP|::|NIL|) (|CLM|::|CHANNEL| 0.)
+    (|CLM|::|START| 0.)
+    (|CLM|::|FORCE-RECOMPUTATION| |CLM|::|*FORCE-RECOMPUTATION*|))))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-MIX-CALLS*|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-MIX-OPTIONS*|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|GET-MIX-CALLS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|F|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|GET-MIX-OPTIONS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|TEMP-SOUND-CTR|))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|SOUND-LET|)
+(|SYSTEM|::|%PUTD| '|CLM|::|SOUND-LET|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|SOUND-LET|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|SOUNDS|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|SOUND-LET|
+       `(|COMMON-LISP|::|LET*|
+         ((|CLM|::|OLD-OUTPUT| |CLM|::|*OUTPUT*|)
+          (|CLM|::|SOUND-FILE-LIST| |COMMON-LISP|::|NIL|)
+          (|CLM|::|OLD-RECOMPUTE| |CLM|::|*FORCE-RECOMPUTATION*|)
+          (|CLM|::|*OPEN-INPUT-EXPLICIT-OUTPUT*| |COMMON-LISP|::|NIL|)
+          (|CLM|::|*OPEN-INPUT-EXPLICIT-REVERB*| |COMMON-LISP|::|NIL|))
+         (|COMMON-LISP|::|LOOP| |CLM|::|FOR|
+          (|CLM|::|SND| |CLM|::|OPTS| |CLM|::|CALLS|) |CLM|::|IN|
+          ',|CLM|::|SOUNDS| |COMMON-LISP|::|DO|
+          (|COMMON-LISP|::|LET|
+           ((|CLM|::|NAME-LOC|
+             (|COMMON-LISP|::|POSITION| :|OUTPUT| |CLM|::|OPTS|)))
+           (|COMMON-LISP|::|PUSH|
+            (|CLM|::|FILENAME->STRING|
+             (|CLM|::|FULL-MERGE-PATHNAMES|
+              (|COMMON-LISP|::|IF| |CLM|::|NAME-LOC|
+               (|COMMON-LISP|::|NTH| (|COMMON-LISP|::|1+| |CLM|::|NAME-LOC|)
+                |CLM|::|OPTS|)
+               (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING| "snd"
+                (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| "~D"
+                 (|COMMON-LISP|::|INCF| |CLM|::|TEMP-SOUND-CTR|))))
+              |CLM|::|*CLM-FILE-NAME*|))
+            |CLM|::|SOUND-FILE-LIST|)))
+         (|COMMON-LISP|::|LET*|
+          (,@(|COMMON-LISP|::|LOOP| |CLM|::|FOR|
+              (|CLM|::|SND| |CLM|::|OPTS| |CLM|::|CALLS|) |CLM|::|IN|
+              |CLM|::|SOUNDS| |COMMON-LISP|::|AND| |CLM|::|I| |CLM|::|FROM| 0.
+              |COMMON-LISP|::|AND| |CLM|::|ALL-CALLS| |CLM|::|IN|
+              |CLM|::|SOUNDS| |CLM|::|COLLECT|
+              (|COMMON-LISP|::|PROGN|
+               `(,|CLM|::|SND|
+                 (|COMMON-LISP|::|PROGN|
+                  (|CLM|::|WITH-SOUND|
+                   (,@|CLM|::|OPTS|
+                    ,@(|COMMON-LISP|::|IF|
+                       (|COMMON-LISP|::|NOT|
+                        (|COMMON-LISP|::|FIND| :|OUTPUT| |CLM|::|OPTS|))
+                       (|COMMON-LISP|::|LIST| :|OUTPUT|
+                        `(|COMMON-LISP|::|NTH| ,|CLM|::|I|
+                          |CLM|::|SOUND-FILE-LIST|)))
+                    ,@(|COMMON-LISP|::|IF|
+                       (|COMMON-LISP|::|NOT|
+                        (|COMMON-LISP|::|FIND| :|CHANNELS| |CLM|::|OPTS|))
+                       (|COMMON-LISP|::|LIST| :|CHANNELS|
+                        `(|CLM|::|MUS-CHANNELS| |CLM|::|OLD-OUTPUT|)))
+                    ,@(|COMMON-LISP|::|IF|
+                       (|COMMON-LISP|::|NOT|
+                        (|COMMON-LISP|::|FIND| :|SRATE| |CLM|::|OPTS|))
+                       (|COMMON-LISP|::|LIST| :|SRATE|
+                        `(|CLM|::|SOUND-SRATE|
+                          (|CLM|::|MUS-FILE-NAME| |CLM|::|OLD-OUTPUT|))))
+                    ,@(|COMMON-LISP|::|IF|
+                       (|COMMON-LISP|::|NOT|
+                        (|COMMON-LISP|::|FIND| :|NOTEHOOK| |CLM|::|OPTS|))
+                       (|COMMON-LISP|::|LIST| :|NOTEHOOK|
+                        |COMMON-LISP|::|NIL|))
+                    :|PLAY| |COMMON-LISP|::|NIL|)
+                   ,@(|COMMON-LISP|::|CDDR| |CLM|::|ALL-CALLS|))
+                  (|COMMON-LISP|::|NTH| ,|CLM|::|I|
+                   |CLM|::|SOUND-FILE-LIST|))))))
+          (|COMMON-LISP|::|LOCALLY| ,@|CLM|::|BODY|))
+         (|COMMON-LISP|::|SETF| |CLM|::|*FORCE-RECOMPUTATION*|
+          |CLM|::|OLD-RECOMPUTE|)
+         (|COMMON-LISP|::|SETF| |CLM|::|*CLM-INS*| |COMMON-LISP|::|NIL|)
+         (|COMMON-LISP|::|LOOP| |CLM|::|FOR| |CLM|::|SND| |CLM|::|IN|
+          |CLM|::|SOUND-FILE-LIST| |COMMON-LISP|::|DO|
+          (|COMMON-LISP|::|DELETE-FILE| |CLM|::|SND|))))))))
+  '(|CLM|::|SOUNDS| |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MIX-IN|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|SOURCE-FILE| |CLM|::|BEGIN-TIME| |COMMON-LISP|::|&OPTIONAL|
+    |CLM|::|DURATION|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|REV-MIX-IN|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|SOURCE-FILE| |CLM|::|BEGIN-TIME| |CLM|::|REVERB-FILE|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|WITH-MIX|)
+(|SYSTEM|::|%PUTD| '|CLM|::|WITH-MIX|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|WITH-MIX|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 4. 4.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|OPTIONS|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|UR-CHKPT-FILE| (|COMMON-LISP|::|CADDR| . #1#))
+       (|CLM|::|UR-BEG| (|COMMON-LISP|::|CADDDR| . #1#))
+       (|CLM|::|BODY| (|COMMON-LISP|::|CDDDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|WITH-MIX|
+       `(|COMMON-LISP|::|LET|
+         ((|CLM|::|CHKPT-FILE| ,|CLM|::|UR-CHKPT-FILE|)
+          (|CLM|::|BEG| ,|CLM|::|UR-BEG|)
+          (|CLM|::|OLD-RECOMPUTE| |CLM|::|*FORCE-RECOMPUTATION*|))
+         (|COMMON-LISP|::|IF|
+          (|COMMON-LISP|::|NOT| (|COMMON-LISP|::|LISTP| ',|CLM|::|OPTIONS|))
+          (|COMMON-LISP|::|ERROR| "with-mix options list (arg 1) is ~A?"
+           ,|CLM|::|OPTIONS|))
+         (|COMMON-LISP|::|IF|
+          (|COMMON-LISP|::|NOT|
+           (|COMMON-LISP|::|OR| (|COMMON-LISP|::|STRINGP| |CLM|::|CHKPT-FILE|)
+            (|COMMON-LISP|::|PATHNAMEP| |CLM|::|CHKPT-FILE|)))
+          (|COMMON-LISP|::|ERROR| "with-mix file (arg 2) is ~A?"
+           ,|CLM|::|UR-CHKPT-FILE|))
+         (|COMMON-LISP|::|IF|
+          (|COMMON-LISP|::|NOT| (|COMMON-LISP|::|NUMBERP| |CLM|::|BEG|))
+          (|COMMON-LISP|::|SETF| |CLM|::|BEG|
+           (|CLM|::|CLM-CERROR| "use 0.0" 0.0f0 #'|COMMON-LISP|::|NUMBERP|
+            "with-mix begin time (arg 3) for ~S = ~A?" |CLM|::|CHKPT-FILE|
+            |CLM|::|BEG|)))
+         (|COMMON-LISP|::|IF| (|COMMON-LISP|::|NULL| ',|CLM|::|BODY|)
+          (|CLM|::|MIX-IN| |CLM|::|CHKPT-FILE| |CLM|::|BEG|)
+          (|COMMON-LISP|::|LET|
+           ((|CLM|::|CALL-STR|
+             (|COMMON-LISP|::|WRITE-TO-STRING| ',|CLM|::|BODY|))
+            (|CLM|::|OPTION-STR|
+             (|COMMON-LISP|::|WRITE-TO-STRING| ',|CLM|::|OPTIONS|))
+            (|CLM|::|SNDF|
+             (|CLM|::|FULL-MERGE-PATHNAMES|
+              (|CLM|::|MAKE-TYPED-FILE-NAME| |CLM|::|CHKPT-FILE|
+               (|COMMON-LISP|::|PATHNAME-TYPE| |CLM|::|*CLM-FILE-NAME*|))
+              |CLM|::|*CLM-FILE-NAME*|))
+            (|CLM|::|ERRF|
+             (|CLM|::|FULL-MERGE-PATHNAMES|
+              (|CLM|::|MAKE-TYPED-FILE-NAME| |CLM|::|CHKPT-FILE| "error")
+              |CLM|::|*CLM-FILE-NAME*|))
+            (|CLM|::|REVF|
+             (|CLM|::|FULL-MERGE-PATHNAMES|
+              (|CLM|::|MAKE-TYPED-FILE-NAME| |CLM|::|CHKPT-FILE| "rev")
+              |CLM|::|*CLM-FILE-NAME*|)))
+           (|COMMON-LISP|::|IF|
+            (|COMMON-LISP|::|AND|
+             (|COMMON-LISP|::|NOT| |CLM|::|*FORCE-RECOMPUTATION*|)
+             (|COMMON-LISP|::|PROBE-FILE| |CLM|::|SNDF|)
+             (|COMMON-LISP|::|OR| (|COMMON-LISP|::|NOT| |CLM|::|*REVERB*|)
+              (|COMMON-LISP|::|PROBE-FILE| |CLM|::|REVF|))
+             (|COMMON-LISP|::|NOT| (|COMMON-LISP|::|PROBE-FILE| |CLM|::|ERRF|))
+             (|COMMON-LISP|::|STRING-EQUAL|
+              (|CLM|::|GET-MIX-CALLS|
+               (|CLM|::|FILENAME->STRING| |CLM|::|SNDF|))
+              |CLM|::|CALL-STR|)
+             (|COMMON-LISP|::|STRING-EQUAL| (|CLM|::|GET-MIX-OPTIONS|)
+              |CLM|::|OPTION-STR|))
+            (|COMMON-LISP|::|PROGN|
+             (|COMMON-LISP|::|IF| |CLM|::|*VERBOSE*|
+              (|CLM|::|CL-PRINTF|
+               (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| "; Mixing ~A "
+                (|CLM|::|FILENAME->STRING| |CLM|::|SNDF|))))
+             (|CLM|::|REV-MIX-IN| (|CLM|::|FILENAME->STRING| |CLM|::|SNDF|)
+              |CLM|::|BEG|
+              (|COMMON-LISP|::|AND| |CLM|::|*REVERB*|
+               (|CLM|::|FILENAME->STRING| |CLM|::|REVF|))))
+            (|COMMON-LISP|::|LET| ((|CLM|::|FINISHED-OK| |COMMON-LISP|::|NIL|))
+             (|COMMON-LISP|::|UNWIND-PROTECT|
+              (|COMMON-LISP|::|LET|
+               ((|CLM|::|CLMF|
+                 (|CLM|::|FULL-MERGE-PATHNAMES|
+                  (|CLM|::|MAKE-TYPED-FILE-NAME| |CLM|::|CHKPT-FILE| "clm")
+                  |CLM|::|*CLM-FILE-NAME*|)))
+               (|COMMON-LISP|::|IF| |CLM|::|*VERBOSE*|
+                (|COMMON-LISP|::|IF|
+                 (|COMMON-LISP|::|PROBE-FILE| |CLM|::|ERRF|)
+                 (|CLM|::|CL-PRINTF|
+                  (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL|
+                   "; ~A was interrupted during previous computation -- will recompute it~%"
+                   (|CLM|::|FILENAME->STRING| |CLM|::|SNDF|)))
+                 (|CLM|::|CL-PRINTF|
+                  (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL|
+                   "; Computing ~A "
+                   (|CLM|::|FILENAME->STRING| |CLM|::|SNDF|)))))
+               (|COMMON-LISP|::|WITH-OPEN-FILE|
+                (|CLM|::|FIL| |CLM|::|CLMF| :|DIRECTION| :|OUTPUT|
+                 :|IF-DOES-NOT-EXIST| :|CREATE| :|IF-EXISTS| :|SUPERSEDE|)
+                (|COMMON-LISP|::|FORMAT| |CLM|::|FIL|
+                 ";Temporary notelist for ~A~%~A~%" |CLM|::|CHKPT-FILE|
+                 (|CLM|::|MAKE-BANNER|))
+                (|COMMON-LISP|::|FORMAT| |CLM|::|FIL|
+                 "(with-sound (~{~S ~S ~}~%             ~\n
+                                               :play nil~%            ~\n
+                                               ~A~A~A ~%             ~\n
+                                               :info ~S)~%~\n
+                                               ~{  ~S~%~})"
+                 ',|CLM|::|OPTIONS|
+                 (|COMMON-LISP|::|IF|
+                  (|COMMON-LISP|::|NOT|
+                   (|COMMON-LISP|::|FIND| :|CHANNELS| ',|CLM|::|OPTIONS|))
+                  (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| " :channels ~D"
+                   (|CLM|::|MUS-CHANNELS| |CLM|::|*OUTPUT*|))
+                  "")
+                 (|COMMON-LISP|::|IF|
+                  (|COMMON-LISP|::|NOT|
+                   (|COMMON-LISP|::|FIND| :|SRATE| ',|CLM|::|OPTIONS|))
+                  (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| " :srate ~D"
+                   |CLM|::|*SRATE*|)
+                  "")
+                 (|COMMON-LISP|::|IF|
+                  (|COMMON-LISP|::|AND| |CLM|::|*REVERB*|
+                   (|COMMON-LISP|::|NOT|
+                    (|COMMON-LISP|::|FIND| :|REVERB| ',|CLM|::|OPTIONS|)))
+                  (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| " :revfile ~S"
+                   (|CLM|::|FILENAME->STRING| |CLM|::|REVF|))
+                  "")
+                 (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL|
+                  "~A~%  (setf *clm-mix-calls* '~A)~%  (setf *clm-mix-options* '~A)~%"
+                  (|CLM|::|MAKE-BANNER|) |CLM|::|CALL-STR| |CLM|::|OPTION-STR|)
+                 ',|CLM|::|BODY|))
+               (|CLM|::|REV-MIX-IN| |CLM|::|CLMF| |CLM|::|BEG|
+                (|COMMON-LISP|::|AND| |CLM|::|*REVERB*|
+                 (|CLM|::|FILENAME->STRING| |CLM|::|REVF|)))
+               (|COMMON-LISP|::|IF| (|COMMON-LISP|::|PROBE-FILE| |CLM|::|ERRF|)
+                (|COMMON-LISP|::|DELETE-FILE| |CLM|::|ERRF|))
+               (|COMMON-LISP|::|SETF| |CLM|::|FINISHED-OK| |COMMON-LISP|::|T|))
+              (|COMMON-LISP|::|IF| (|COMMON-LISP|::|NOT| |CLM|::|FINISHED-OK|)
+               (|COMMON-LISP|::|LET|
+                ((|CLM|::|ERR|
+                  (|COMMON-LISP|::|OPEN| |CLM|::|ERRF| :|DIRECTION| :|OUTPUT|
+                   :|IF-EXISTS| :|SUPERSEDE|)))
+                (|COMMON-LISP|::|CLOSE| |CLM|::|ERR|))))))))
+         (|COMMON-LISP|::|SETF| |CLM|::|*FORCE-RECOMPUTATION*|
+          |CLM|::|OLD-RECOMPUTE|)
+         |COMMON-LISP|::|NIL|))))))
+  '(|CLM|::|OPTIONS| |CLM|::|UR-CHKPT-FILE| |CLM|::|UR-BEG|
+    |COMMON-LISP|::|&BODY| |CLM|::|BODY|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MIX_-_1|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&KEY| |CLM|::|FILENAME| (|CLM|::|INPUT-FRAMPLE| 0.)
+    (|CLM|::|OUTPUT-FRAMPLE| 0.) |CLM|::|FRAMPLES| |CLM|::|OUTPUT|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MIX|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&REST| |CLM|::|PASSED-ARGS|)))
+(|COMMON-LISP|::|LET| |COMMON-LISP|::|NIL|
+ (|COMMON-LISP|::|LET|
+  ((#1=#:|G61387|
+    (|COMMON-LISP|::|CONS| '|CLM|::|WSDAT|
+     (|CLOS|::|CLASS-NAMES|
+      (|COMMON-LISP|::|GET| '|COMMON-LISP|::|STRUCTURE-OBJECT|
+       '|CLOS|::|CLOSCLASS|)))))
+  (|SYSTEM|::|STRUCTURE-UNDEFINE-ACCESSORIES| '|CLM|::|WSDAT|)
+  (|COMMON-LISP|::|REMPROP| '|CLM|::|WSDAT| '|SYSTEM|::|DEFSTRUCT-DESCRIPTION|)
+  (|CLOS|::|DEFINE-STRUCTURE-CLASS| '|CLM|::|WSDAT| #1# '|CLM|::|MAKE-WSDAT|
+   '|COMMON-LISP|::|NIL| '|CLM|::|COPY-WSDAT| '|CLM|::|WSDAT-P|
+   (|COMMON-LISP|::|LIST|
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|REVFUN|
+     :|INITARGS| '#2=(:|REVFUN|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3='|CLOS|::|INHERITABLE-INITER|
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #4=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5='|CLOS|::|INHERITABLE-DOC| '(|COMMON-LISP|::|NIL|)
+     #6='|CLOS|::|LOCATION| '1. #7='|CLOS|::|READONLY| '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|REVDAT|
+     :|INITARGS| '#8=(:|REVDAT|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #9=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '2. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|REVDECAY|
+     :|INITARGS| '#10=(:|REVDECAY|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #11=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '3. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|OUTTYPE|
+     :|INITARGS| '#12=(:|OUTTYPE|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #13=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '4. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|PLAY|
+     :|INITARGS| '#14=(:|PLAY|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #15=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '5. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|STATS|
+     :|INITARGS| '#16=(:|STATS|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #17=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '6. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|POSIX|::|WAIT|
+     :|INITARGS| '#18=(:|WAIT|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #19=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '7. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME|
+     '|CLM|::|SCALED-TO| :|INITARGS| '#20=(:|SCALED-TO|) :|TYPE|
+     '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #21=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '8. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME|
+     '|COMMON-LISP|::|FORMAT| :|INITARGS| '#22=(:|FORMAT|) :|TYPE|
+     '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #23=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '9. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|FILE|
+     :|INITARGS| '#24=(:|FILE|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #25=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '10. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME| '|CLM|::|CHANNELS|
+     :|INITARGS| '#26=(:|CHANNELS|) :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION|
+     ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #27=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '11. #7# '|COMMON-LISP|::|NIL|)
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-EFFECTIVE-SLOT-DEFINITION>| :|NAME|
+     '|CLM|::|SCALED-BY| :|INITARGS| '#28=(:|SCALED-BY|) :|TYPE|
+     '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE| #3#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #29=(|SYSTEM|::|MAKE-CONSTANT-INITFUNCTION| |COMMON-LISP|::|NIL|))
+     #5# '(|COMMON-LISP|::|NIL|) #6# '12. #7# '|COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|LIST|
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|REVFUN|
+     :|INITARGS| '#2# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30='|CLOS|::|INHERITABLE-INITER|
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #4#)
+     #31='|CLOS|::|INHERITABLE-DOC| '(|COMMON-LISP|::|NIL|) :|READERS|
+     '(|CLM|::|WSDAT-REVFUN|) :|WRITERS|
+     '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|REVDAT|
+     :|INITARGS| '#8# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #9#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-REVDAT|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|REVDECAY|
+     :|INITARGS| '#10# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #11#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-REVDECAY|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|OUTTYPE|
+     :|INITARGS| '#12# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #13#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-OUTTYPE|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|PLAY|
+     :|INITARGS| '#14# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #15#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-PLAY|) :|WRITERS|
+     '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|STATS|
+     :|INITARGS| '#16# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #17#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-STATS|) :|WRITERS|
+     '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|POSIX|::|WAIT|
+     :|INITARGS| '#18# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #19#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-WAIT|) :|WRITERS|
+     '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|SCALED-TO|
+     :|INITARGS| '#20# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #21#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-SCALED-TO|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME|
+     '|COMMON-LISP|::|FORMAT| :|INITARGS| '#22# :|TYPE| '|COMMON-LISP|::|T|
+     :|ALLOCATION| ':|INSTANCE| #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #23#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-FORMAT|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|FILE|
+     :|INITARGS| '#24# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #25#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-FILE|) :|WRITERS|
+     '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|CHANNELS|
+     :|INITARGS| '#26# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #27#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-CHANNELS|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|)))
+    (|CLOS|::|MAKE-INSTANCE-<STRUCTURE-DIRECT-SLOT-DEFINITION>|
+     |CLOS|::|<STRUCTURE-DIRECT-SLOT-DEFINITION>| :|NAME| '|CLM|::|SCALED-BY|
+     :|INITARGS| '#28# :|TYPE| '|COMMON-LISP|::|T| :|ALLOCATION| ':|INSTANCE|
+     #30#
+     (|CLOS|::|MAKE-INHERITABLE-SLOT-DEFINITION-INITER| '|COMMON-LISP|::|NIL|
+      #29#)
+     #31# '(|COMMON-LISP|::|NIL|) :|READERS| '(|CLM|::|WSDAT-SCALED-BY|)
+     :|WRITERS| '((|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|))))
+   '|COMMON-LISP|::|NIL|)
+  (|COMMON-LISP|::|DEFUN| |CLM|::|MAKE-WSDAT|
+   (|COMMON-LISP|::|&KEY| (#32=#:|REVFUN| |COMMON-LISP|::|NIL|)
+    (#33=#:|REVDAT| |COMMON-LISP|::|NIL|)
+    (#34=#:|REVDECAY| |COMMON-LISP|::|NIL|)
+    (#35=#:|OUTTYPE| |COMMON-LISP|::|NIL|) (#36=#:|PLAY| |COMMON-LISP|::|NIL|)
+    (#37=#:|STATS| |COMMON-LISP|::|NIL|) (#38=#:|WAIT| |COMMON-LISP|::|NIL|)
+    (#39=#:|SCALED-TO| |COMMON-LISP|::|NIL|)
+    (#40=#:|FORMAT| |COMMON-LISP|::|NIL|) (#41=#:|FILE| |COMMON-LISP|::|NIL|)
+    (#42=#:|CHANNELS| |COMMON-LISP|::|NIL|)
+    (#43=#:|SCALED-BY| |COMMON-LISP|::|NIL|))
+   (|COMMON-LISP|::|LET|
+    ((|SYSTEM|::|OBJECT| (|SYSTEM|::|%MAKE-STRUCTURE| #1# 13.)))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 1.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #32#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 2.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #33#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 3.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #34#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 4.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #35#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 5.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #36#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 6.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #37#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 7.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #38#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 8.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #39#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 9.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #40#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 10.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #41#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 11.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #42#))
+    (|COMMON-LISP|::|SETF|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 12.)
+     (|COMMON-LISP|::|THE| |COMMON-LISP|::|T| #43#))
+    |SYSTEM|::|OBJECT|)))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-P|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-P| (|SYSTEM|::|OBJECT|)
+  (|SYSTEM|::|%STRUCTURE-TYPE-P| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|COPY-WSDAT|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|COPY-WSDAT| (|COMMON-LISP|::|STRUCTURE|)
+  (|COMMON-LISP|::|COPY-STRUCTURE| |COMMON-LISP|::|STRUCTURE|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-REVFUN| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-REVFUN|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-REVFUN| #44=(|SYSTEM|::|OBJECT|)
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 1.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-REVFUN| #45='|SYSTEM|::|DEFSTRUCT-READER|
+  '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-REVDAT| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-REVDAT|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-REVDAT| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 2.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-REVDAT| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-REVDECAY| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-REVDECAY|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-REVDECAY| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 3.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-REVDECAY| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-OUTTYPE| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-OUTTYPE|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-OUTTYPE| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 4.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-OUTTYPE| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-PLAY| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-PLAY|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-PLAY| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 5.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-PLAY| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-STATS| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-STATS|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-STATS| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 6.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-STATS| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-WAIT| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-WAIT|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-WAIT| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 7.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-WAIT| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-SCALED-TO| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-SCALED-TO|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-SCALED-TO| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 8.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-SCALED-TO| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-FORMAT| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-FORMAT|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-FORMAT| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 9.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-FORMAT| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-FILE| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-FILE|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-FILE| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 10.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-FILE| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-CHANNELS| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-CHANNELS|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-CHANNELS| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 11.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-CHANNELS| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-SCALED-BY| (|CLM|::|WSDAT|)
+    |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-SCALED-BY|))
+ (|COMMON-LISP|::|DEFUN| |CLM|::|WSDAT-SCALED-BY| #44#
+  (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+   (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 12.)))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-SCALED-BY| #45# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)
+  #46=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|)
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 1.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-REVFUN| #47='|SYSTEM|::|DEFSTRUCT-WRITER|
+  '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 2.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-REVDAT| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 3.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-REVDECAY| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 4.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-OUTTYPE| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 5.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-PLAY| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 6.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-STATS| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 7.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-WAIT| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 8.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-SCALED-TO| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 9.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-FORMAT| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 10.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-FILE| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 11.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-CHANNELS| #47# '|CLM|::|WSDAT|)
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|)
+    (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+ (|COMMON-LISP|::|PROCLAIM|
+  '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|)))
+ (|COMMON-LISP|::|DEFUN| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|) #46#
+  (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 12.
+   |SYSTEM|::|VALUE|))
+ (|SYSTEM|::|%PUT| '|CLM|::|WSDAT-SCALED-BY| #47# '|CLM|::|WSDAT|)
+ (|CLOS|::|DEFSTRUCT-REMOVE-PRINT-OBJECT-METHOD| '|CLM|::|WSDAT|)
+ '|CLM|::|WSDAT|)
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MAKE-WSDAT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&KEY| (#:|REVFUN| |COMMON-LISP|::|NIL|)
+    (#:|REVDAT| |COMMON-LISP|::|NIL|) (#:|REVDECAY| |COMMON-LISP|::|NIL|)
+    (#:|OUTTYPE| |COMMON-LISP|::|NIL|) (#:|PLAY| |COMMON-LISP|::|NIL|)
+    (#:|STATS| |COMMON-LISP|::|NIL|) (#:|WAIT| |COMMON-LISP|::|NIL|)
+    (#:|SCALED-TO| |COMMON-LISP|::|NIL|) (#:|FORMAT| |COMMON-LISP|::|NIL|)
+    (#:|FILE| |COMMON-LISP|::|NIL|) (#:|CHANNELS| |COMMON-LISP|::|NIL|)
+    (#:|SCALED-BY| |COMMON-LISP|::|NIL|))))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-P|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-P|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-P|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-P|
+    (|SYSTEM|::|%STRUCTURE-TYPE-P| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT|))))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|COPY-WSDAT|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|COPY-WSDAT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|COMMON-LISP|::|STRUCTURE|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|COPY-WSDAT|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|COPY-WSDAT|
+    (|COMMON-LISP|::|COPY-STRUCTURE| |COMMON-LISP|::|STRUCTURE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-REVFUN| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-REVFUN|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-REVFUN|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-REVFUN|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-REVFUN|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 1.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-REVDAT| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-REVDAT|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-REVDAT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-REVDAT|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-REVDAT|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 2.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-REVDECAY| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-REVDECAY|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-REVDECAY|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1#
+   (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-REVDECAY|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-REVDECAY|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 3.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-OUTTYPE| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-OUTTYPE|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-OUTTYPE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-OUTTYPE|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-OUTTYPE|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 4.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-PLAY| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-PLAY|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-PLAY|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-PLAY|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-PLAY|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 5.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-STATS| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-STATS|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-STATS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-STATS|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-STATS|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 6.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-WAIT| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-WAIT|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-WAIT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-WAIT|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-WAIT|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 7.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-SCALED-TO| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-SCALED-TO|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-SCALED-TO|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1#
+   (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-SCALED-TO|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-SCALED-TO|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 8.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-FORMAT| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-FORMAT|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-FORMAT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-FORMAT|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-FORMAT|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 9.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-FILE| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-FILE|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-FILE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-FILE|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-FILE|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 10.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-CHANNELS| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-CHANNELS|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-CHANNELS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1#
+   (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-CHANNELS|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-CHANNELS|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 11.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| |CLM|::|WSDAT-SCALED-BY| (|CLM|::|WSDAT|)
+   |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|INLINE| |CLM|::|WSDAT-SCALED-BY|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|WSDAT-SCALED-BY|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '#1=(|SYSTEM|::|OBJECT|))
+ '(#1#
+   (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| |CLM|::|WSDAT-SCALED-BY|))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-SCALED-BY|
+    (|COMMON-LISP|::|THE| |COMMON-LISP|::|T|
+     (|SYSTEM|::|%STRUCTURE-REF| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 12.)))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVFUN|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-REVFUN|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 1.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDAT|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-REVDAT|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 2.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-REVDECAY|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-REVDECAY|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 3.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-OUTTYPE|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-OUTTYPE|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 4.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-PLAY|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-PLAY|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 5.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-STATS|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-STATS|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 6.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-WAIT|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-WAIT|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 7.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-TO|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-SCALED-TO|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 8.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FORMAT|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-FORMAT|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 9.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-FILE|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-FILE|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 10.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-CHANNELS|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-CHANNELS|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 11.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|FUNCTION| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|)
+   (|COMMON-LISP|::|T| |CLM|::|WSDAT|) |COMMON-LISP|::|T|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|INLINE| (|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|)))
+(|SYSTEM|::|C-DEFUN| '#1=(|COMMON-LISP|::|SETF| |CLM|::|WSDAT-SCALED-BY|)
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '#2=(|SYSTEM|::|VALUE| |SYSTEM|::|OBJECT|))
+ '(#2# (|COMMON-LISP|::|DECLARE| (|SYSTEM|::|IN-DEFUN| #1#))
+   (|COMMON-LISP|::|BLOCK| |CLM|::|WSDAT-SCALED-BY|
+    (|SYSTEM|::|%STRUCTURE-STORE| '|CLM|::|WSDAT| |SYSTEM|::|OBJECT| 12.
+     |SYSTEM|::|VALUE|))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|INIT-WITH-SOUND|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&KEY| (|CLM|::|OUTPUT| |CLM|::|*CLM-FILE-NAME*|)
+    |CLM|::|SNDFILE| (|CLM|::|CHANNELS| |CLM|::|*CLM-CHANNELS*|)
+    (|CLM|::|SRATE| |CLM|::|*CLM-SRATE*|) |CLM|::|CONTINUE-OLD-FILE|
+    |CLM|::|REVERB| |CLM|::|REVERB-DATA|
+    (|CLM|::|REVERB-CHANNELS| |CLM|::|*CLM-REVERB-CHANNELS*|) |CLM|::|REVFILE|
+    (|CLM|::|DECAY-TIME| 1.0f0) (|CLM|::|PLAY| |CLM|::|*CLM-PLAY*|)
+    (|CLM|::|NOTEHOOK| |CLM|::|*CLM-NOTEHOOK*|)
+    (|CLM|::|STATISTICS| |CLM|::|*CLM-STATISTICS*|) |COMMON-LISP|::|TYPE|
+    (|CLM|::|HEADER-TYPE| |CLM|::|*CLM-HEADER-TYPE*|)
+    (|CLM|::|DATA-FORMAT| |CLM|::|*CLM-DATA-FORMAT*|) |CLM|::|SCALED-TO|
+    |CLM|::|SCALED-BY| (|CLM|::|CLIPPED| |CLM|::|*CLM-CLIPPED*|)
+    |CLM|::|FORCE-RECOMPUTATION| (|CLM|::|VERBOSE| |CLM|::|*CLM-VERBOSE*|)
+    |CLM|::|COMMENT|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|FINISH-WITH-SOUND|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|WSD|)))

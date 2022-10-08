@@ -1,0 +1,333 @@
+#0Y_ #0Y |CHARSET|::|UTF-8|
+(|COMMON-LISP|::|SETQ| |COMMON-LISP|::|*PACKAGE*|
+ (|SYSTEM|::|%FIND-PACKAGE| "CLM"))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CLM-SND-IN-PROGRESS*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*CURRENT-INS-ARGS*|))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|SET-INSTRUMENT-PROPERTIES|)
+(|SYSTEM|::|%PUTD| '|CLM|::|SET-INSTRUMENT-PROPERTIES|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|SET-INSTRUMENT-PROPERTIES|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 5.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|NAME| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|FILE| (|COMMON-LISP|::|CADDR| . #1#))
+       (|CLM|::|PRINT-FUNCTION| (|COMMON-LISP|::|CADDDR| . #1#))
+       (|CLM|::|LIBRARY| (|COMMON-LISP|::|FIFTH| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|SET-INSTRUMENT-PROPERTIES|
+       `(|COMMON-LISP|::|PROGN|
+         (|COMMON-LISP|::|SETF|
+          (|COMMON-LISP|::|GET| ,|CLM|::|NAME| :|INS-VARS|)
+          ',|CLM|::|VARIABLE-LOAD-LIST|)
+         (|COMMON-LISP|::|SETF|
+          (|COMMON-LISP|::|GET| ,|CLM|::|NAME| :|INS-ARGS|)
+          ',|CLM|::|*CURRENT-INS-ARGS*|)
+         (|COMMON-LISP|::|SETF| (|COMMON-LISP|::|GET| ,|CLM|::|NAME| :|C-PROC|)
+          ,(|COMMON-LISP|::|SYMBOL-NAME| |CLM|::|*C-PROC*|))
+         (|COMMON-LISP|::|SETF|
+          (|COMMON-LISP|::|GET| ,|CLM|::|NAME| :|PRINT-FUNCTION|)
+          ,|CLM|::|PRINT-FUNCTION|)
+         (|COMMON-LISP|::|SETF|
+          (|COMMON-LISP|::|GET| ,|CLM|::|NAME| :|LIBRARY|) ,|CLM|::|LIBRARY|)
+         (|COMMON-LISP|::|SETF|
+          (|COMMON-LISP|::|GET| ,|CLM|::|NAME| :|C-FILE-NAME|)
+          ,|CLM|::|FILE|)))))))
+  '(|CLM|::|NAME| |COMMON-LISP|::|&OPTIONAL| |CLM|::|FILE|
+    |CLM|::|PRINT-FUNCTION| |CLM|::|LIBRARY|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-DATAI|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-DATAR|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|INS-VAR|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|VAR-NAME| |COMMON-LISP|::|&OPTIONAL|
+    (|CLM|::|INS-NAME| |CLM|::|*CLM-INS*|))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|DESCRIBE-INSTRUMENT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|INS-NAME| |CLM|::|VARNAME|
+    (|COMMON-LISP|::|STREAM| |COMMON-LISP|::|T|))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|DI|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL| |CLM|::|NAME|)))
+(|EXT|::|WITHOUT-PACKAGE-LOCK| ("FFI")
+ (|COMMON-LISP|::|SETQ| |FFI|::|*FOREIGN-LANGUAGE*| ':|STDC|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|NOOPFUN|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|X| |CLM|::|Y| |CLM|::|Z|)))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*C-FLAGS*|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|*LIBCLM-PATHNAME*|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*INS-FILE-LOADING*|))
+(|SYSTEM|::|C-PROCLAIM| '(|COMMON-LISP|::|SPECIAL| |CLM|::|SO-CTR|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|*DEFINSTRUMENT-HOOK*|))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|DEFINSTRUMENT|)
+(|SYSTEM|::|%PUTD| '|CLM|::|DEFINSTRUMENT|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|DEFINSTRUMENT|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |CLM|::|ENV|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|INS-NAME|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (#2=#:|G61791| (|COMMON-LISP|::|CADDR| . #1#)) (#3=#:|G61792| #2#)
+       (|CLM|::|ARGS| #3#) (|CLM|::|BODY| (|COMMON-LISP|::|CDDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|DEFINSTRUMENT|
+       (|COMMON-LISP|::|LET*|
+        ((|CLM|::|*HEADER-INFO*| |COMMON-LISP|::|NIL|)
+         (|CLM|::|*C-FILE-NAME*| |COMMON-LISP|::|NIL|)
+         (|CLM|::|*C-COMPILER-OPTIONS*| |CLM|::|*C-FLAGS*|)
+         (|CLM|::|*C-PRINT-FUNCTION*| |COMMON-LISP|::|NIL|)
+         (|CLM|::|*WITH-REFLECTION*| |COMMON-LISP|::|NIL|)
+         (|CLM|::|NAME|
+          (|COMMON-LISP|::|IF| (|COMMON-LISP|::|LISTP| |CLM|::|INS-NAME|)
+           (|COMMON-LISP|::|APPLY|
+            #'(|COMMON-LISP|::|LAMBDA|
+               (|CLM|::|NAM| |COMMON-LISP|::|&KEY| |CLM|::|C-FILE|
+                |CLM|::|C-INCLUDE-FILE| (|CLM|::|C-OPTIONS| |CLM|::|*C-FLAGS*|)
+                |CLM|::|PRINT-FUNCTION| |COMMON-LISP|::|&ALLOW-OTHER-KEYS|)
+               (|COMMON-LISP|::|PROG1| |CLM|::|NAM|
+                (|COMMON-LISP|::|SETF| |CLM|::|*C-FILE-NAME*| |CLM|::|C-FILE|)
+                (|COMMON-LISP|::|SETF| |CLM|::|*HEADER-INFO*|
+                 |CLM|::|C-INCLUDE-FILE|)
+                (|COMMON-LISP|::|SETF| |CLM|::|*C-COMPILER-OPTIONS*|
+                 |CLM|::|C-OPTIONS|)
+                (|COMMON-LISP|::|SETF| |CLM|::|*C-PRINT-FUNCTION*|
+                 |CLM|::|PRINT-FUNCTION|)))
+            |CLM|::|INS-NAME|)
+           |CLM|::|INS-NAME|))
+         (|CLM|::|SILLY-NAME|
+          (|COMMON-LISP|::|GENTEMP| (|COMMON-LISP|::|STRING| |CLM|::|NAME|)))
+         (|CLM|::|DEPENDENT-FILE| |COMMON-LISP|::|NIL|)
+         (|CLM|::|ANTECEDENT-FILE| |COMMON-LISP|::|NIL|)
+         (|CLM|::|HOOKFORM|
+          (|COMMON-LISP|::|IF| |CLM|::|*DEFINSTRUMENT-HOOK*|
+           (|COMMON-LISP|::|FUNCALL| |CLM|::|*DEFINSTRUMENT-HOOK*|
+            |CLM|::|NAME| |CLM|::|ARGS|)
+           `(|COMMON-LISP|::|EVAL-WHEN| (:|LOAD-TOPLEVEL|)
+             (|COMMON-LISP|::|IF| |CLM|::|*DEFINSTRUMENT-HOOK*|
+              (|COMMON-LISP|::|EVAL|
+               (|COMMON-LISP|::|FUNCALL| |CLM|::|*DEFINSTRUMENT-HOOK*|
+                ',|CLM|::|NAME| ',|CLM|::|ARGS|)))))))
+        (|COMMON-LISP|::|LET|
+         ((|CLM|::|LIB| (|COMMON-LISP|::|GET| |CLM|::|NAME| :|LIBRARY|)))
+         (|COMMON-LISP|::|WHEN| |CLM|::|LIB|
+          (|FFI|::|CLOSE-FOREIGN-LIBRARY| |CLM|::|LIB|)
+          (|COMMON-LISP|::|SETF|
+           (|COMMON-LISP|::|GET| |CLM|::|NAME| :|LIBRARY|)
+           |COMMON-LISP|::|NIL|)))
+        (|COMMON-LISP|::|SETF| |CLM|::|*CURRENT-INS-ARGS*| |CLM|::|ARGS|)
+        (|COMMON-LISP|::|LET*|
+         ((|CLM|::|LSP-NAME|
+           (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING| "clm_"
+            (|COMMON-LISP|::|STRING-DOWNCASE|
+             (|CLM|::|LISP->C-NAME|
+              (|COMMON-LISP|::|SYMBOL-NAME| |CLM|::|NAME|)))))
+          (|CLM|::|C-FF|
+           (|COMMON-LISP|::|IF| |CLM|::|*INS-FILE-LOADING*|
+            (|COMMON-LISP|::|INTERN| |CLM|::|LSP-NAME|)
+            (|COMMON-LISP|::|GENTEMP| |CLM|::|LSP-NAME|)))
+          (|CLM|::|C-FF-NAME| (|COMMON-LISP|::|SYMBOL-NAME| |CLM|::|C-FF|))
+          (|CLM|::|INS-FILE-NAME|
+           (|COMMON-LISP|::|OR|
+            (|COMMON-LISP|::|OR| |COMMON-LISP|::|*LOAD-PATHNAME*|
+             |COMMON-LISP|::|*COMPILE-FILE-TRUENAME*|)
+            (|COMMON-LISP|::|ERROR|
+             "oops -- I can't find ~A's lisp source file!" |CLM|::|NAME|)))
+          (|CLM|::|C-FILE-NAME|
+           (|COMMON-LISP|::|OR| |CLM|::|*C-FILE-NAME*|
+            (|CLM|::|FILENAME->STRING|
+             (|COMMON-LISP|::|MERGE-PATHNAMES|
+              (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING| "clm_"
+               (|CLM|::|LISP->C-NAME|
+                (|COMMON-LISP|::|SYMBOL-NAME| |CLM|::|NAME|))
+               ".c")
+              |CLM|::|INS-FILE-NAME|))))
+          (|CLM|::|L-FILE-NAME|
+           (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING|
+            (|COMMON-LISP|::|SUBSEQ| |CLM|::|C-FILE-NAME| 0.
+             (|COMMON-LISP|::|-| (|COMMON-LISP|::|LENGTH| |CLM|::|C-FILE-NAME|)
+              2.))
+            ".o"))
+          (|CLM|::|SO-FILE-NAME|
+           (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING|
+            (|COMMON-LISP|::|SUBSEQ| |CLM|::|C-FILE-NAME| 0.
+             (|COMMON-LISP|::|-| (|COMMON-LISP|::|LENGTH| |CLM|::|C-FILE-NAME|)
+              2.))
+            (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| "_~D"
+             |CLM|::|SO-CTR|)
+            "." |CLM|::|*SO-EXT*|))
+          (|CLM|::|INS-CODE-FILE|
+           (|COMMON-LISP|::|IF| |CLM|::|*INS-FILE-LOADING*|
+            (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING|
+             (|COMMON-LISP|::|SUBSEQ| |CLM|::|C-FILE-NAME| 0.
+              (|COMMON-LISP|::|-|
+               (|COMMON-LISP|::|LENGTH| |CLM|::|C-FILE-NAME|) 2.))
+             ".icl"))))
+         (|COMMON-LISP|::|SETF| |CLM|::|SO-CTR|
+          (|COMMON-LISP|::|1+| |CLM|::|SO-CTR|))
+         (|COMMON-LISP|::|LET| ((|CLM|::|INS-CODE| |COMMON-LISP|::|NIL|))
+          (|COMMON-LISP|::|IF| |CLM|::|*INS-FILE-LOADING*|
+           (|COMMON-LISP|::|SETF| |CLM|::|DEPENDENT-FILE| |CLM|::|C-FILE-NAME|
+            |CLM|::|ANTECEDENT-FILE| |COMMON-LISP|::|NIL|)
+           (|COMMON-LISP|::|SETF| |CLM|::|DEPENDENT-FILE| |CLM|::|SO-FILE-NAME|
+            |CLM|::|ANTECEDENT-FILE| |CLM|::|C-FILE-NAME|))
+          (|COMMON-LISP|::|IF|
+           (|COMMON-LISP|::|AND| |CLM|::|*INS-FILE-LOADING*|
+            (|COMMON-LISP|::|PROBE-FILE| |CLM|::|DEPENDENT-FILE|)
+            (|COMMON-LISP|::|PROBE-FILE| |CLM|::|ANTECEDENT-FILE|)
+            (|COMMON-LISP|::|>=|
+             (|COMMON-LISP|::|FILE-WRITE-DATE|
+              (|COMMON-LISP|::|TRUENAME| |CLM|::|DEPENDENT-FILE|))
+             (|COMMON-LISP|::|FILE-WRITE-DATE|
+              (|COMMON-LISP|::|TRUENAME| |CLM|::|ANTECEDENT-FILE|))))
+           (|COMMON-LISP|::|WITH-OPEN-FILE|
+            (|CLM|::|FIL| |CLM|::|INS-CODE-FILE| :|DIRECTION| :|INPUT|)
+            (|COMMON-LISP|::|SETF| |CLM|::|INS-CODE|
+             (|COMMON-LISP|::|READ| |CLM|::|FIL|)))
+           (|COMMON-LISP|::|UNWIND-PROTECT|
+            (|COMMON-LISP|::|PROGN|
+             (|COMMON-LISP|::|SETF| |CLM|::|*C-FILE*|
+              (|COMMON-LISP|::|OPEN| |CLM|::|C-FILE-NAME| :|DIRECTION|
+               :|OUTPUT| :|IF-EXISTS| :|SUPERSEDE| :|IF-DOES-NOT-EXIST|
+               :|CREATE|))
+             (|COMMON-LISP|::|PRINC|
+              (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| "; Writing ~S~%"
+               |CLM|::|C-FILE-NAME|))
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+              "/* translate ~A in ~A to C~% *   written ~A by CLM of ~A~% */~%~%"
+              (|COMMON-LISP|::|STRING-DOWNCASE| |CLM|::|NAME|)
+              |CLM|::|INS-FILE-NAME| (|CLM|::|TIMESTRING|) |CLM|::|*CLM-DATE*|)
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+              "#include <mus-config.h>~%~\n
+                                    #include <stdio.h>~%~\n
+                                    #include <stdlib.h>~%~\n
+                                    #include <stdint.h>~%~\n
+                                    #include <stdarg.h>~%~\n
+                                    #include <math.h>~%")
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+              "#include <signal.h>~%")
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*| "#include <cmus.h>~%")
+             (|COMMON-LISP|::|IF| |CLM|::|*HEADER-INFO*|
+              (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*| "#include ~S~%"
+               |CLM|::|*HEADER-INFO*|))
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*| "~%")
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+              "static sig_atomic_t got_sigint = 0; /* catch C-C if hung */~%")
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+              "static void sig_err(int sig) {got_sigint = sig;}~%")
+             (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*| "~%")
+             (|COMMON-LISP|::|SETF| |CLM|::|*C-PROC*| |CLM|::|C-FF|)
+             (|COMMON-LISP|::|SETF| |CLM|::|*LISP-PROC*| |CLM|::|INS-NAME|)
+             (|COMMON-LISP|::|SETF| |CLM|::|INS-CODE|
+              (|WALKER|::|WALK-FORM|
+               `(|COMMON-LISP|::|LOCALLY| ,@|CLM|::|BODY|) |CLM|::|ENV|
+               '|CLM|::|NOOPFUN|)))
+            (|COMMON-LISP|::|CLOSE| |CLM|::|*C-FILE*|)))
+          `(|COMMON-LISP|::|PROGN| ,|CLM|::|HOOKFORM|
+            (|COMMON-LISP|::|EVAL-WHEN| (:|COMPILE-TOPLEVEL|)
+             (|COMMON-LISP|::|WHEN|
+              (|COMMON-LISP|::|OR|
+               (|COMMON-LISP|::|NOT|
+                (|COMMON-LISP|::|PROBE-FILE| ,|CLM|::|DEPENDENT-FILE|))
+               (|COMMON-LISP|::|NOT|
+                (|COMMON-LISP|::|PROBE-FILE| ,|CLM|::|ANTECEDENT-FILE|))
+               (|COMMON-LISP|::|>|
+                (|COMMON-LISP|::|FILE-WRITE-DATE|
+                 (|COMMON-LISP|::|TRUENAME| ,|CLM|::|ANTECEDENT-FILE|))
+                (|COMMON-LISP|::|FILE-WRITE-DATE|
+                 (|COMMON-LISP|::|TRUENAME| ,|CLM|::|DEPENDENT-FILE|)))
+               (|COMMON-LISP|::|AND| |CLM|::|*INS-FILE-LOADING*|
+                (|COMMON-LISP|::|OR|
+                 (|COMMON-LISP|::|NOT|
+                  (|COMMON-LISP|::|PROBE-FILE| ,|CLM|::|L-FILE-NAME|))
+                 (|COMMON-LISP|::|NOT|
+                  (|COMMON-LISP|::|PROBE-FILE| ,|CLM|::|C-FILE-NAME|))
+                 (|COMMON-LISP|::|>|
+                  (|COMMON-LISP|::|FILE-WRITE-DATE|
+                   (|COMMON-LISP|::|TRUENAME| ,|CLM|::|C-FILE-NAME|))
+                  (|COMMON-LISP|::|FILE-WRITE-DATE|
+                   (|COMMON-LISP|::|TRUENAME| ,|CLM|::|L-FILE-NAME|))))))
+              (|COMMON-LISP|::|PRINC|
+               (|COMMON-LISP|::|FORMAT| |COMMON-LISP|::|NIL| "; Compiling ~S~%"
+                ,|CLM|::|C-FILE-NAME|))
+              (|EXT|::|SHELL|
+               (|COMMON-LISP|::|CONCATENATE| '|COMMON-LISP|::|STRING|
+                ,|CLM|::|*CLM-COMPILER-NAME*| " " ,|CLM|::|C-FILE-NAME| " "
+                ,|CLM|::|*C-COMPILER-OPTIONS*| " -shared -o "
+                ,|CLM|::|SO-FILE-NAME| " -L" |CLM|::|*CLM-BINARY-DIRECTORY*|
+                " " |CLM|::|*LIBCLM-PATHNAME*|
+                (|COMMON-LISP|::|STRING| #\Newline)))))
+            (|FFI|::|DEF-CALL-OUT| ,|CLM|::|C-FF| (:|NAME| ,|CLM|::|C-FF-NAME|)
+             (:|LIBRARY|
+              (|CLM|::|EXPAND-FILENAME->STRING| ,|CLM|::|SO-FILE-NAME|))
+             (:|LANGUAGE| :|STDC|) (:|RETURN-TYPE| |FFI|::|INT|)
+             (:|ARGUMENTS|
+              (|CLM|::|DATAR|
+               (|FFI|::|C-ARRAY-PTR| |COMMON-LISP|::|DOUBLE-FLOAT|))
+              (|CLM|::|LEN| |FFI|::|INT|)
+              (|CLM|::|DATAI| (|FFI|::|C-ARRAY-PTR| |FFI|::|INT|))
+              (|CLM|::|ILEN| |FFI|::|INT|)))
+            (|COMMON-LISP|::|PUSHNEW| ',|CLM|::|NAME|
+             |CLM|::|*CLM-INSTRUMENTS*|)
+            (|COMMON-LISP|::|DEFUN| ,|CLM|::|NAME| ,|CLM|::|ARGS|
+             (|COMMON-LISP|::|SETF| |CLM|::|*CLM-INS*| ',|CLM|::|NAME|)
+             (|COMMON-LISP|::|IF|
+              (|COMMON-LISP|::|OR| (|COMMON-LISP|::|NOT| |CLM|::|*NOTEHOOK*|)
+               (|COMMON-LISP|::|NOT|
+                (|COMMON-LISP|::|EQ|
+                 (|COMMON-LISP|::|FUNCALL| |CLM|::|*NOTEHOOK*|
+                  (|COMMON-LISP|::|SYMBOL-NAME| ',|CLM|::|NAME|)
+                  ,@(|COMMON-LISP|::|LET|
+                     ((|CLM|::|DEFARGS|
+                       (|COMMON-LISP|::|SET-DIFFERENCE| |CLM|::|ARGS|
+                        |COMMON-LISP|::|LAMBDA-LIST-KEYWORDS|)))
+                     (|COMMON-LISP|::|NREVERSE|
+                      (|COMMON-LISP|::|LOOP| |CLM|::|FOR| |CLM|::|ARG|
+                       |CLM|::|IN| |CLM|::|DEFARGS| |CLM|::|COLLECT|
+                       (|COMMON-LISP|::|IF|
+                        (|COMMON-LISP|::|SYMBOLP| |CLM|::|ARG|) |CLM|::|ARG|
+                        (|COMMON-LISP|::|FIRST| |CLM|::|ARG|))))))
+                 :|DONE|)))
+              (|COMMON-LISP|::|IF|
+               (|COMMON-LISP|::|ZEROP| |CLM|::|*INTERRUPTED*|)
+               (|COMMON-LISP|::|LET| ((|CLM|::|VAL| |COMMON-LISP|::|NIL|))
+                (|COMMON-LISP|::|TAGBODY|
+                 (|COMMON-LISP|::|RESTART-CASE|
+                  (|COMMON-LISP|::|SETF| |CLM|::|VAL|
+                   (|COMMON-LISP|::|PROGN| ,|CLM|::|INS-CODE|))
+                  (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| :|REPORT|
+                   "abort current note."
+                   (|COMMON-LISP|::|GO| |CLM|::|C-INSTRUMENT-DONE|)))
+                 |CLM|::|C-INSTRUMENT-DONE|)
+                |CLM|::|VAL|))))
+            (|COMMON-LISP|::|DEFUN| ,|CLM|::|SILLY-NAME| |COMMON-LISP|::|NIL|
+             (|COMMON-LISP|::|PUSHNEW| ',|CLM|::|NAME|
+              |CLM|::|*CLM-INSTRUMENTS*|)
+             (|CLM|::|SET-INSTRUMENT-PROPERTIES| ',|CLM|::|NAME|
+              ,|CLM|::|C-FILE-NAME| ,|CLM|::|*C-PRINT-FUNCTION*|
+              (|CLM|::|EXPAND-FILENAME->STRING| ,|CLM|::|SO-FILE-NAME|)))
+            (,|CLM|::|SILLY-NAME|))))))))))
+  '(|CLM|::|INS-NAME| (|COMMON-LISP|::|&REST| |CLM|::|ARGS|)
+    |COMMON-LISP|::|&BODY| |CLM|::|BODY| |COMMON-LISP|::|&ENVIRONMENT|
+    |CLM|::|ENV|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-INITIALIZE-LINKS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |CLM|::|CLM-CLEANUP-FUNCTIONS|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLEANUP-CLM|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))

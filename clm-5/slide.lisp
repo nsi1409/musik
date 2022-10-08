@@ -1,0 +1,10 @@
+(load "all.lisp")
+(compile-file "v.ins")
+(load "v")
+(setf freq 262)
+(loop for i from 0 to 31 do
+	(print "frequency")
+	(print freq)
+	(with-sound () (fm-violin 0 3 freq .1)) 
+	(setf freq (+ freq (* freq 0.12)))
+)

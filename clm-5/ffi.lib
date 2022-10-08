@@ -1,0 +1,246 @@
+#0Y_ #0Y |CHARSET|::|UTF-8|
+(|COMMON-LISP|::|SETQ| |COMMON-LISP|::|*PACKAGE*|
+ (|SYSTEM|::|%FIND-PACKAGE| "CLM"))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLOSE-OUTPUT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLOSE-REVERB|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SOUND-LOOP-INFO|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SOUND-MAXAMP|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FILENAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|FULLSTRNAME|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|FULLNAME|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|N| |CLM|::|CALLER|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-CHANS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-DURATION|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-DATA-FORMAT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-DATA-LOCATION|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-DATUM-SIZE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-HEADER-TYPE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-LENGTH|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-SAMPLES|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-FRAMPLES|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-SRATE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-COMMENT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|NAME|)))
+(|EXT|::|WITHOUT-PACKAGE-LOCK| ("FFI")
+ (|COMMON-LISP|::|SETQ| |FFI|::|*FOREIGN-LANGUAGE*| ':|STDC|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SL-DAC-1|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "sl_dac") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|NAME| |FFI|::|C-STRING|)
+         (|CLM|::|DEV| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|SL-DAC-1| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|INITIALIZE-CMUS|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "initialize_cmus") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|INITIALIZE-CMUS| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-LITTLE-ENDIAN|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_little_endian") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-LITTLE-ENDIAN| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-MAXAMP-INIT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_sound_maxamp_init") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|IFILE| |FFI|::|C-STRING|)
+         (|CLM|::|CHANS| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|SOUND-MAXAMP-INIT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-MAXAMP-TIME|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_sound_maxamp_time") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|CHAN| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|SOUND-MAXAMP-TIME| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-MAXAMP-AMP|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_sound_maxamp_amp") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|)
+        (:|ARGUMENTS| (|CLM|::|CHAN| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|SOUND-MAXAMP-AMP| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SET-RAND-SEED|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_set_rand_seed") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|SEED| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|MUS-SET-RAND-SEED| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-RANDOM-1|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_frandom") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|)
+        (:|ARGUMENTS| (|CLM|::|AMP| |COMMON-LISP|::|DOUBLE-FLOAT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-RANDOM-1| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-MIX|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_mix") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|OUTFILE| |FFI|::|C-STRING|)
+         (|CLM|::|INFILE| |FFI|::|C-STRING|) (|CLM|::|OUT_START| |FFI|::|INT|)
+         (|CLM|::|OUT_FRAMPLES| |FFI|::|INT|)
+         (|CLM|::|IN_START| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-MIX| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SCALE-FILE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_scale_file") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|OUTFILE| |FFI|::|C-STRING|)
+         (|CLM|::|INFILE| |FFI|::|C-STRING|)
+         (|CLM|::|SCALER| |COMMON-LISP|::|DOUBLE-FLOAT|)
+         (|CLM|::|FRM| |FFI|::|INT|) (|CLM|::|HDR| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-SCALE-FILE| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLOSE-OUTPUT-1|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_close_output") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLOSE-OUTPUT-1| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLOSE-REVERB-1|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_close_reverb") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLOSE-REVERB-1| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-MAKE-OUTPUT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_make_output") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FILE| |FFI|::|C-STRING|)
+         (|CLM|::|CHANS| |FFI|::|INT|) (|CLM|::|FRM| |FFI|::|INT|)
+         (|CLM|::|TYP| |FFI|::|INT|) (|CLM|::|COM| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-MAKE-OUTPUT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-MAKE-REVERB|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_make_reverb") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FILE| |FFI|::|C-STRING|)
+         (|CLM|::|CHANS| |FFI|::|INT|) (|CLM|::|FRM| |FFI|::|INT|)
+         (|CLM|::|TYP| |FFI|::|INT|) (|CLM|::|COM| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-MAKE-REVERB| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CONTINUE-OUTPUT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_continue_output") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FILE| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CONTINUE-OUTPUT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CONTINUE-REVERB|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_continue_reverb") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FILE| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CONTINUE-REVERB| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SRATE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_srate") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|MUS-SRATE| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SET-SRATE-1|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_set_srate") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|)
+        (:|ARGUMENTS| (|CLM|::|VAL| |COMMON-LISP|::|DOUBLE-FLOAT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|MUS-SET-SRATE-1| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-FILE-BUFFER-SIZE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "cl_clm_file_buffer_size")
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|)) (:|RETURN-TYPE| |FFI|::|INT|))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|MUS-FILE-BUFFER-SIZE| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SET-FILE-BUFFER-SIZE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "cl_clm_set_file_buffer_size")
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|)) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|VAL| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|MUS-SET-FILE-BUFFER-SIZE| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SET-OUTPUT-SAFETY|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_set_output_safety") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|VAL| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-SET-OUTPUT-SAFETY| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SET-REVERB-SAFETY|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_set_reverb_safety") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|VAL| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-SET-REVERB-SAFETY| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|ARRAY->FILE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_array2file") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|FILE| |FFI|::|C-STRING|)
+         (|CLM|::|DATA| (|FFI|::|C-ARRAY-PTR| |COMMON-LISP|::|DOUBLE-FLOAT|))
+         (|CLM|::|LEN| |FFI|::|INT|) (|CLM|::|SRATE| |FFI|::|INT|)
+         (|CLM|::|CHANS| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|ARRAY->FILE| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|SOUND-MAXAMP|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|FILE| |CLM|::|CHANS| |CLM|::|ARR| |EXT|::|TIMES|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-RANDOM|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|A|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|MUS-SET-SRATE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|A|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CONVOLUTION|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|RL1| |CLM|::|IM1| |CLM|::|LEN|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|AUTOCORRELATE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|RL1| |CLM|::|LEN|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CORRELATE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|RL1| |CLM|::|IM1| |CLM|::|LEN|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-FFT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|RL| |CLM|::|IM| |CLM|::|LEN| |CLM|::|ISIGN|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLISP-FILE->ARRAY-INIT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_file2array_init")
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|)) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FILE| |FFI|::|C-STRING|)
+         (|CLM|::|CHAN| |FFI|::|INT|) (|CLM|::|START| |FFI|::|INT|)
+         (|CLM|::|SAMPLES| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-FILE->ARRAY-INIT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLISP-FILE->ARRAY|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_file2array") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|)
+        (:|ARGUMENTS| (|CLM|::|I| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-FILE->ARRAY| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|FILE->ARRAY|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|CLM|::|FILE| |CLM|::|CHAN| |CLM|::|START| |CLM|::|SAMPLES| |CLM|::|ARR|)))

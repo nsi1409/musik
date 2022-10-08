@@ -1,0 +1,28 @@
+(load "all.lisp")
+(load "v")
+(load "bigbird")
+(load "strad")
+(load "piano")
+(compile-and-load "san")
+
+(setf pianoamp 0.8)
+(with-sound () (p 0 :keynum 60 :amp pianoamp))
+(with-sound () (p 0 :keynum 63 :amp pianoamp))
+(with-sound () (p 0 :keynum 58 :amp pianoamp))
+(with-sound () (p 0 :keynum 60 :amp pianoamp))
+
+(setf bowamp 1.7)
+(with-sound () (bow 0 3 262 bowamp))
+(with-sound () (bow 0 3 311 bowamp))
+(with-sound () (bow 0 3 233 bowamp))
+(with-sound () (bow 0 3 262 bowamp))
+
+(with-sound () (bigbird-2 0 3 262 0.2 1))
+(with-sound () (bigbird-2 0 3 311 3 1))
+(with-sound () (bigbird-2 0 3 233 -2 1))
+(with-sound () (bigbird-2 0 3 262 0 1))
+
+(with-sound () (fm-violin 0 3 262 .1)) 
+(with-sound () (fm-violin 0 3 311 .1)) 
+(with-sound () (fm-violin 0 3 233 .1)) 
+(with-sound () (fm-violin 0 3 262 .1)) 

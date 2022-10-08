@@ -1,0 +1,639 @@
+(|SYSTEM|::|VERSION| '(20100806.))
+#0Y_ #0Y |CHARSET|::|UTF-8|
+#Y(#:|1 1 (IN-PACKAGE :CLM)-1|
+   #17Y(00 00 00 00 00 00 00 00 20 01 DA 31 F6 0F 01 19 01)
+   ("CLM" |COMMON-LISP|::|*PACKAGE*|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|2 7 (EXPORT '(CLM-SEEK-BYTES CLM-SEEK-FLOATS CLM-READ-FLOATS ...))-2|
+   #17Y(00 00 00 00 00 00 00 00 20 01 DA 38 01 31 E6 19 01)
+   ((|CLM|::|CLM-SEEK-BYTES| |CLM|::|CLM-SEEK-FLOATS| |CLM|::|CLM-READ-FLOATS|
+     |CLM|::|CLM-WRITE-FLOATS| |CLM|::|CLM-READ-INTS| |CLM|::|CLM-WRITE-INTS|
+     |CLM|::|C-OPEN-INPUT-FILE| |CLM|::|C-OPEN-OUTPUT-FILE|
+     |CLM|::|C-CREATE-FILE| |CLM|::|C-CLOSE| |CLM|::|C-SEEK|
+     |CLM|::|CLM-SWAP-INTS| |CLM|::|CLM-SWAP-DOUBLES|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|9 10 (DEFAULT-FOREIGN-LANGUAGE :STDC)-3|
+   #36Y(03 00 01 00 00 00 00 00 20 01 DA DB 38 05 72 6B 53 08 63 AF 30 02 C8 0F
+        04 54 64 67 00 00 00 30 02 55 19 02)
+   (#.#'|EXT|::|PACKAGE-LOCK| ("FFI")
+    #.(|SYSTEM|::|GET-SETF-SYMBOL| '|EXT|::|PACKAGE-LOCK|) :|STDC|
+    |FFI|::|*FOREIGN-LANGUAGE*|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|12 19 (DEF-CALL-OUT C-SEEK (:NAME "clm_clisp_lseek") ...)-4|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_lseek"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|) (|CLM|::|LOC| |FFI|::|INT|)
+         (|COMMON-LISP|::|TYPE| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-SEEK| . #2#) |FFI|::|PARSE-C-FUNCTION|
+    |CLM|::|FULL-LIB-NAME| |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-SEEK|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|20 37 (DEFMACRO <CLM-SEEK-BYTES> (FD N) ...)-5|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-SEEK-BYTES>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-SEEK-BYTES>|
+       #54Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 1E 9F 5C 78
+            A0 5C 5C 78 6B 03 DE AF DF 70 06 AF DF 70 06 B1 6F 07 B1 6F 07 2D
+            06 08 00 19 05 AE 2F 02 19 03)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-SEEK-BYTES>-1|
+           #75Y(00 00 00 00 05 00 00 00 21 00 00 10 00 DB B6 38 02 31 95 B4 B6
+                31 90 DC B6 38 02 31 95 B3 B6 31 90 DD B6 38 02 31 95 B5 01 02
+                DE DF 2D 05 06 E1 B6 38 02 31 95 B2 B6 31 90 E2 B6 31 94 B1 B6
+                31 90 E3 B6 38 02 31 95 A1 11 19 07)
+           (|SYSTEM|::|*FORMAT-CS*| "  lseek(" ", " ", SEEK_SET);" 80. 1.
+            |SYSTEM|::|FORMAT-TABULATE| "/* (clm-seek-bytes " #\Space ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|CLEAN-ARG|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|FD| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|39 39 (DEFUN CLM-SEEK-BYTES (FD N) ...)-6|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-SEEK-BYTES| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-SEEK-BYTES|
+       #18Y(00 00 00 00 02 00 00 00 26 03 AE AE DA 2D 03 01 19 03)
+       (0. |CLM|::|C-SEEK|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|FD| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|39 41 (DEF-CLM-FUN 'CLM-SEEK-BYTES #'(LAMBDA # # ...))-7|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-SEEK-BYTES|
+    #Y(#:|39 41 (DEF-CLM-FUN 'CLM-SEEK-BYTES #'(LAMBDA # # ...))-7-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA 63 AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-SEEK-BYTES>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|44 52 (DEFMACRO <CLM-SEEK-FLOATS> (FD N) ...)-8|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-SEEK-FLOATS>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-SEEK-FLOATS>|
+       #54Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 1E 9F 5C 78
+            A0 5C 5C 78 6B 03 DE AF DF 70 06 AF DF 70 06 B1 6F 07 B1 6F 07 2D
+            06 08 00 19 05 AE 2F 02 19 03)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-SEEK-FLOATS>-1|
+           #75Y(00 00 00 00 05 00 00 00 21 00 00 10 00 DB B6 38 02 31 95 B4 B6
+                31 90 DC B6 38 02 31 95 B3 B6 31 90 DD B6 38 02 31 95 B5 01 02
+                DE DF 2D 05 06 E1 B6 38 02 31 95 B2 B6 31 90 E2 B6 31 94 B1 B6
+                31 90 E3 B6 38 02 31 95 A1 11 19 07)
+           (|SYSTEM|::|*FORMAT-CS*| "  lseek(" ", "
+            " * sizeof(double), SEEK_SET);" 80. 1. |SYSTEM|::|FORMAT-TABULATE|
+            "/* (clm-seek-floats " #\Space ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|CLEAN-ARG|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|FD| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|54 54 (DEFUN CLM-SEEK-FLOATS (FD N) ...)-9|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-SEEK-FLOATS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-SEEK-FLOATS|
+       #22Y(00 00 00 00 02 00 00 00 26 03 AE DA AF 73 02 39 DB 2D 03 02 19 03)
+       (8. 0. |CLM|::|C-SEEK|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|FD| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|54 56 (DEF-CLM-FUN 'CLM-SEEK-FLOATS #'(LAMBDA # # ...))-10|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-SEEK-FLOATS|
+    #Y(#:|54 56 (DEF-CLM-FUN 'CLM-SEEK-FLOATS #'(LAMBDA # # ...))-10-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA 63 AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-SEEK-FLOATS>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|59 72 (DEFMACRO <CLM-READ-FLOATS> (RESULT FD ARR ...) ...)-11|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-READ-FLOATS>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-READ-FLOATS>|
+       #64Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 28 9F 5C 78
+            A0 5C 5C 78 A1 5C 5C 5C 78 B1 71 A2 6B 03 DE A2 5C 78 6F 05 B1 E0
+            70 07 B1 6F 08 B1 E0 70 07 2D 06 09 00 19 07 AE 2F 02 19 03)
+       (5. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-READ-FLOATS>-1|
+           #63Y(00 00 00 00 05 00 00 00 21 00 00 10 00 DB B6 38 02 31 95 B4 B6
+                31 90 DC B6 38 02 31 95 B3 B6 31 90 DD B6 38 02 31 95 B2 B6 31
+                90 DE B6 38 02 31 95 B1 B6 31 90 DF B6 38 02 31 95 A1 11 19 07)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = read(" ", (char *)(" "), "
+            " * sizeof(double)) / sizeof(double);\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|LC-ARR-REF|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|74 74 (DEF-CLM-FUN 'CLM-READ-FLOATS #'(LAMBDA # #))-12|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-READ-FLOATS|
+    #Y(#:|74 74 (DEF-CLM-FUN 'CLM-READ-FLOATS #'(LAMBDA # #))-12-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-READ-FLOATS>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|76 86 (DEF-CALL-OUT CLM-CLISP-DOUBLES-INIT (:NAME "clm_clisp_doubles_init") ...)-13|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_doubles_init"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|) (|CLM|::|N| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-DOUBLES-INIT| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|CLM-CLISP-DOUBLES-INIT|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|87 88 (DEF-CALL-OUT CLM-CLISP-DOUBLE (:NAME "clm_clisp_double") ...)-14|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_double"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|)
+        (:|ARGUMENTS| (|CLM|::|I| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-DOUBLE| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|CLM-CLISP-DOUBLE|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|90 95 (DEFUN CLM-READ-FLOATS (FD BUF N) ...)-15|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-READ-FLOATS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-READ-FLOATS|
+       #41Y(00 00 00 00 03 00 00 00 26 04 AF AE 30 00 DB 1B 0D AC 6F 02 B0 AE
+            AE 33 01 02 16 01 85 00 AC AF 91 01 2F 6D 16 01 9E 19 04)
+       (|CLM|::|CLM-CLISP-DOUBLES-INIT| 0. |CLM|::|CLM-CLISP-DOUBLE|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|FD| |CLM|::|BUF| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|97 110 (DEFMACRO <CLM-READ-INTS> (RESULT FD ARR ...) ...)-16|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-READ-INTS>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-READ-INTS>|
+       #64Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 28 9F 5C 78
+            A0 5C 5C 78 A1 5C 5C 5C 78 B1 71 A2 6B 03 DE A2 5C 78 6F 05 B1 E0
+            70 07 B1 6F 08 B1 E0 70 07 2D 06 09 00 19 07 AE 2F 02 19 03)
+       (5. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-READ-INTS>-1|
+           #63Y(00 00 00 00 05 00 00 00 21 00 00 10 00 DB B6 38 02 31 95 B4 B6
+                31 90 DC B6 38 02 31 95 B3 B6 31 90 DD B6 38 02 31 95 B2 B6 31
+                90 DE B6 38 02 31 95 B1 B6 31 90 DF B6 38 02 31 95 A1 11 19 07)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = read(" ", (char *)(" "), "
+            " * sizeof(int)) / sizeof(int);\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|LC-ARR-REF|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|112 112 (DEF-CLM-FUN 'CLM-READ-INTS #'(LAMBDA # #))-17|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-READ-INTS|
+    #Y(#:|112 112 (DEF-CLM-FUN 'CLM-READ-INTS #'(LAMBDA # #))-17-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-READ-INTS>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|114 122 (DEF-CALL-OUT CLM-CLISP-INTS-INIT (:NAME "clm_clisp_ints_init") ...)-18|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_ints_init"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|) (|CLM|::|N| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-INTS-INIT| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|CLM-CLISP-INTS-INIT|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|123 124 (DEF-CALL-OUT CLM-CLISP-INT (:NAME "clm_clisp_int") ...)-19|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_int"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|) (:|ARGUMENTS| (|CLM|::|I| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-INT| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|CLM-CLISP-INT|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|126 131 (DEFUN CLM-READ-INTS (FD BUF N) ...)-20|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-READ-INTS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-READ-INTS|
+       #41Y(00 00 00 00 03 00 00 00 26 04 AF AE 30 00 DB 1B 0D AC 6F 02 B0 AE
+            AE 33 01 02 16 01 85 00 AC AF 91 01 2F 6D 16 01 9E 19 04)
+       (|CLM|::|CLM-CLISP-INTS-INIT| 0. |CLM|::|CLM-CLISP-INT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|FD| |CLM|::|BUF| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|132 147 (DEFMACRO <CLM-WRITE-FLOATS> (RESULT FD ARR ...) ...)-21|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-WRITE-FLOATS>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-WRITE-FLOATS>|
+       #64Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 28 9F 5C 78
+            A0 5C 5C 78 A1 5C 5C 5C 78 B1 71 A2 6B 03 DE A2 5C 78 6F 05 B1 E0
+            70 07 B1 6F 08 B1 E0 70 07 2D 06 09 00 19 07 AE 2F 02 19 03)
+       (5. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-WRITE-FLOATS>-1|
+           #63Y(00 00 00 00 05 00 00 00 21 00 00 10 00 DB B6 38 02 31 95 B4 B6
+                31 90 DC B6 38 02 31 95 B3 B6 31 90 DD B6 38 02 31 95 B2 B6 31
+                90 DE B6 38 02 31 95 B1 B6 31 90 DF B6 38 02 31 95 A1 11 19 07)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = write(" ", (char *)(" "), "
+            " * sizeof(double)) / sizeof(double);\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|LC-ARR-REF|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|149 149 (DEF-CLM-FUN 'CLM-WRITE-FLOATS #'(LAMBDA # #))-22|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-WRITE-FLOATS|
+    #Y(#:|149 149 (DEF-CLM-FUN 'CLM-WRITE-FLOATS #'(LAMBDA # #))-22-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-WRITE-FLOATS>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|151 160 (DEF-CALL-OUT C-WRITE-FLOATS (:NAME "clm_clisp_write_floats") ...)-23|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_write_floats"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|)
+         (|CLM|::|BUF| (|FFI|::|C-ARRAY-PTR| |COMMON-LISP|::|DOUBLE-FLOAT|))
+         (|CLM|::|N| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-WRITE-FLOATS| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-WRITE-FLOATS|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|161 164 (DEFUN CLM-WRITE-FLOATS (FD ARR N) ...)-24|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-WRITE-FLOATS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-WRITE-FLOATS|
+       #26Y(00 00 00 00 03 00 00 00 26 04 DA B0 B0 DB B1 73 02 39 6E 03 02 33
+            02 39 19 04)
+       (#10r1/8 8. |CLM|::|C-WRITE-FLOATS|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|FD| |CLM|::|ARR| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|167 175 (DEFMACRO <CLM-WRITE-INTS> (RESULT FD ARR ...) ...)-25|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-WRITE-INTS>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-WRITE-INTS>|
+       #64Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 28 9F 5C 78
+            A0 5C 5C 78 A1 5C 5C 5C 78 B1 71 A2 6B 03 DE A2 5C 78 6F 05 B1 E0
+            70 07 B1 6F 08 B1 E0 70 07 2D 06 09 00 19 07 AE 2F 02 19 03)
+       (5. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-WRITE-INTS>-1|
+           #63Y(00 00 00 00 05 00 00 00 21 00 00 10 00 DB B6 38 02 31 95 B4 B6
+                31 90 DC B6 38 02 31 95 B3 B6 31 90 DD B6 38 02 31 95 B2 B6 31
+                90 DE B6 38 02 31 95 B1 B6 31 90 DF B6 38 02 31 95 A1 11 19 07)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = write(" ", (char *)(" "), "
+            " * sizeof(int)) / sizeof(int);\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|LC-ARR-REF|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|177 177 (DEF-CLM-FUN 'CLM-WRITE-INTS #'(LAMBDA # #))-26|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-WRITE-INTS|
+    #Y(#:|177 177 (DEF-CLM-FUN 'CLM-WRITE-INTS #'(LAMBDA # #))-26-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-WRITE-INTS>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|179 186 (DEF-CALL-OUT C-WRITE-INTS (:NAME "clm_clisp_write_ints") ...)-27|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_write_ints"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|)
+         (|CLM|::|BUF| (|FFI|::|C-ARRAY-PTR| |FFI|::|INT|))
+         (|CLM|::|N| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-WRITE-INTS| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-WRITE-INTS|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|187 188 (DEFUN CLM-WRITE-INTS (FD ARR N) ...)-28|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-WRITE-INTS| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-WRITE-INTS|
+       #26Y(00 00 00 00 03 00 00 00 26 04 DA B0 B0 DB B1 73 02 39 6E 03 02 33
+            02 39 19 04)
+       (#10r1/4 4. |CLM|::|C-WRITE-INTS|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|FD| |CLM|::|ARR| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|191 197 (DEFMACRO <C-CLOSE> (ARG) ...)-29|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<C-CLOSE>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<C-CLOSE>|
+       #43Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 13 9F 5C 78
+            6B 03 DE AE DF 70 06 AF 6F 07 2D 04 08 00 19 04 AE 2F 02 19 03)
+       (2. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<C-CLOSE>-1|
+           #57Y(00 00 00 00 03 00 00 00 21 19 00 10 00 DB B4 38 02 31 95 B2 B4
+                31 90 DC B4 38 02 31 95 B3 01 02 DD DE 2D 05 05 E0 B4 38 02 31
+                95 B1 B4 31 90 E1 B4 38 02 31 95 A1 11 19 05)
+           (|SYSTEM|::|*FORMAT-CS*| "  close(" ");" 80. 1.
+            |SYSTEM|::|FORMAT-TABULATE| "/* (c-close " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        :|INTEGER| |CLM|::|LC-NUM-REF| |CLM|::|CLEAN-ARG|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|ARG|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|199 203 (DEF-CALL-OUT C-CLOSE (:NAME "clm_clisp_close") ...)-30|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="clm_clisp_close"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-CLOSE| . #2#) |FFI|::|PARSE-C-FUNCTION|
+    |CLM|::|FULL-LIB-NAME| |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-CLOSE|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|204 206 (DEF-CLM-FUN 'C-CLOSE #'(LAMBDA # # ...))-31|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|C-CLOSE|
+    #Y(#:|204 206 (DEF-CLM-FUN 'C-CLOSE #'(LAMBDA # # ...))-31-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF 63 DB 2D 04 02 19 03)
+       (|CLM|::|<C-CLOSE>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|210 221 (DEFMACRO <C-OPEN-INPUT-FILE> (RESULT ARG) ...)-32|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<C-OPEN-INPUT-FILE>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<C-OPEN-INPUT-FILE>|
+       #70Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 22 9F 5C 78
+            A0 5C 5C 78 AC 8E 19 1C 6B 03 E1 A0 5C 78 6F 05 A0 5C 78 6F 05 B0
+            2F 08 14 2D 05 06 00 19 05 AE 2F 02 19 03 6B 03 DE A0 5C 78 6F 05
+            AF A1 1B 68)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<C-OPEN-INPUT-FILE>-1|
+           #67Y(00 00 00 00 04 00 00 00 21 1A 00 10 00 DB B5 38 02 31 95 B3 B5
+                31 90 DC B5 38 02 31 95 B2 B5 31 90 DD B5 38 02 31 95 B4 01 02
+                DE DF 2D 05 06 E1 B5 38 02 31 95 B1 B5 31 90 E2 B5 38 02 31 95
+                A1 11 19 06)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = mus_file_open_read(\"" "\");" 80.
+            1. |SYSTEM|::|FORMAT-TABULATE| "/* (c-open-input-file " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| |COMMON-LISP|::|FORMAT|
+        #Y(|CLM|::|<C-OPEN-INPUT-FILE>-2|
+           #67Y(00 00 00 00 04 00 00 00 21 1A 00 10 00 DB B5 38 02 31 95 B3 B5
+                31 90 DC B5 38 02 31 95 B2 B5 31 90 DD B5 38 02 31 95 B4 01 02
+                DE DF 2D 05 06 E1 B5 38 02 31 95 B1 B5 31 90 E2 B5 38 02 31 95
+                A1 11 19 06)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = mus_file_open_read(" ");" 80. 1.
+            |SYSTEM|::|FORMAT-TABULATE| "/* (c-open-input-file " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|CLEAN-ARG|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|ARG|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|223 233 (DEF-CALL-OUT C-OPEN-INPUT-FILE (:NAME "mus_file_open_read") ...)-33|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="mus_file_open_read"
+    #2=((:|NAME| #1#) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|ARGUMENTS| (|CLM|::|ARG| |FFI|::|C-STRING|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-OPEN-INPUT-FILE| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-OPEN-INPUT-FILE|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|234 236 (DEF-CLM-FUN 'C-OPEN-INPUT-FILE #'(LAMBDA # #))-34|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|C-OPEN-INPUT-FILE|
+    #Y(#:|234 236 (DEF-CLM-FUN 'C-OPEN-INPUT-FILE #'(LAMBDA # #))-34-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<C-OPEN-INPUT-FILE>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|239 251 (DEFMACRO <C-OPEN-OUTPUT-FILE> (RESULT ARG) ...)-35|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<C-OPEN-OUTPUT-FILE>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<C-OPEN-OUTPUT-FILE>|
+       #70Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 22 9F 5C 78
+            A0 5C 5C 78 AC 8E 19 1C 6B 03 E1 A0 5C 78 6F 05 A0 5C 78 6F 05 B0
+            2F 08 14 2D 05 06 00 19 05 AE 2F 02 19 03 6B 03 DE A0 5C 78 6F 05
+            AF A1 1B 68)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<C-OPEN-OUTPUT-FILE>-1|
+           #67Y(00 00 00 00 04 00 00 00 21 1A 00 10 00 DB B5 38 02 31 95 B3 B5
+                31 90 DC B5 38 02 31 95 B2 B5 31 90 DD B5 38 02 31 95 B4 01 02
+                DE DF 2D 05 06 E1 B5 38 02 31 95 B1 B5 31 90 E2 B5 38 02 31 95
+                A1 11 19 06)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = mus_file_open_write(\"" "\");" 80.
+            1. |SYSTEM|::|FORMAT-TABULATE| "/* (c-open-output-file " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| |COMMON-LISP|::|FORMAT|
+        #Y(|CLM|::|<C-OPEN-OUTPUT-FILE>-2|
+           #67Y(00 00 00 00 04 00 00 00 21 1A 00 10 00 DB B5 38 02 31 95 B3 B5
+                31 90 DC B5 38 02 31 95 B2 B5 31 90 DD B5 38 02 31 95 B4 01 02
+                DE DF 2D 05 06 E1 B5 38 02 31 95 B1 B5 31 90 E2 B5 38 02 31 95
+                A1 11 19 06)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = mus_file_open_write(" ");" 80. 1.
+            |SYSTEM|::|FORMAT-TABULATE| "/* (c-open-output-file " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|CLEAN-ARG|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|ARG|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|253 263 (DEF-CALL-OUT C-OPEN-OUTPUT-FILE (:NAME "mus_file_open_write") ...)-36|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="mus_file_open_write"
+    #2=((:|NAME| #1#) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|ARGUMENTS| (|CLM|::|ARG| |FFI|::|C-STRING|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-OPEN-OUTPUT-FILE| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-OPEN-OUTPUT-FILE|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|264 267 (DEF-CLM-FUN 'C-OPEN-OUTPUT-FILE #'(LAMBDA # #))-37|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|C-OPEN-OUTPUT-FILE|
+    #Y(#:|264 267 (DEF-CLM-FUN 'C-OPEN-OUTPUT-FILE #'(LAMBDA # #))-37-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<C-OPEN-OUTPUT-FILE>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|270 281 (DEFMACRO <C-CREATE-FILE> (RESULT ARG) ...)-38|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<C-CREATE-FILE>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<C-CREATE-FILE>|
+       #70Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 22 9F 5C 78
+            A0 5C 5C 78 AC 8E 19 1C 6B 03 E1 A0 5C 78 6F 05 A0 5C 78 6F 05 B0
+            2F 08 14 2D 05 06 00 19 05 AE 2F 02 19 03 6B 03 DE A0 5C 78 6F 05
+            AF A1 1B 68)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<C-CREATE-FILE>-1|
+           #67Y(00 00 00 00 04 00 00 00 21 1A 00 10 00 DB B5 38 02 31 95 B3 B5
+                31 90 DC B5 38 02 31 95 B2 B5 31 90 DD B5 38 02 31 95 B4 01 02
+                DE DF 2D 05 06 E1 B5 38 02 31 95 B1 B5 31 90 E2 B5 38 02 31 95
+                A1 11 19 06)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = mus_file_create(\"" "\");" 80. 1.
+            |SYSTEM|::|FORMAT-TABULATE| "/* (c-create-file " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC| |COMMON-LISP|::|FORMAT|
+        #Y(|CLM|::|<C-CREATE-FILE>-2|
+           #67Y(00 00 00 00 04 00 00 00 21 1A 00 10 00 DB B5 38 02 31 95 B3 B5
+                31 90 DC B5 38 02 31 95 B2 B5 31 90 DD B5 38 02 31 95 B4 01 02
+                DE DF 2D 05 06 E1 B5 38 02 31 95 B1 B5 31 90 E2 B5 38 02 31 95
+                A1 11 19 06)
+           (|SYSTEM|::|*FORMAT-CS*| "  " " = mus_file_create(" ");" 80. 1.
+            |SYSTEM|::|FORMAT-TABULATE| "/* (c-create-file " ") */\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|CLEAN-ARG|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|RESULT| |CLM|::|ARG|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|283 293 (DEF-CALL-OUT C-CREATE-FILE (:NAME "mus_file_create") ...)-39|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="mus_file_create"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|ARG| |FFI|::|C-STRING|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|C-CREATE-FILE| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|C-CREATE-FILE|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|294 296 (DEF-CLM-FUN 'C-CREATE-FILE #'(LAMBDA # #))-40|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|C-CREATE-FILE|
+    #Y(#:|294 296 (DEF-CLM-FUN 'C-CREATE-FILE #'(LAMBDA # #))-40-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA AF AF DB 2D 04 02 19 03)
+       (|CLM|::|<C-CREATE-FILE>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|299 326 (DEFMACRO <CLM-SWAP-INTS> (ARR N) ...)-41|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-SWAP-INTS>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-SWAP-INTS>|
+       #47Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 17 9F 5C 78
+            A0 5C 5C 78 6B 03 DE AF 6F 05 AF E0 70 07 2D 04 08 00 19 05 AE 2F
+            02 19 03)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-SWAP-INTS>-1|
+           #43Y(00 00 00 00 03 00 00 00 21 19 00 10 00 DB B4 38 02 31 95 B2 B4
+                31 90 DC B4 38 02 31 95 B1 B4 31 90 DD B4 38 02 31 95 A1 11 19
+                05)
+           (|SYSTEM|::|*FORMAT-CS*| "  swap_int_array((char *)(" "), "
+            " * 4);\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC-ARR-REF| :|INTEGER| |CLM|::|LC-NUM-REF|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|ARR| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|328 328 (DEF-CLM-FUN 'CLM-SWAP-INTS #'(LAMBDA # # ...))-42|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-SWAP-INTS|
+    #Y(#:|328 328 (DEF-CLM-FUN 'CLM-SWAP-INTS #'(LAMBDA # # ...))-42-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA 63 AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-SWAP-INTS>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|330 337 (DEF-CALL-OUT CLM-SWAP-INTS (:NAME "swap_int_array") ...)-43|
+   #37Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 70 03 63 2E 04 14 01 02 6E 06 05
+        93 00 07 E0 2F 07 E0 AD 32 9C CB 19 02)
+   (#1="swap_int_array"
+    #2=((:|NAME| #1#) (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|BUF| (|FFI|::|C-ARRAY-PTR| |FFI|::|INT|))
+         (|CLM|::|BYTES| |FFI|::|INT|)))
+    (|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-SWAP-INTS| . #2#)
+    |FFI|::|PARSE-C-FUNCTION| |CLM|::|FULL-LIB-NAME|
+    |FFI|::|FIND-FOREIGN-FUNCTION| |CLM|::|CLM-SWAP-INTS|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|338 346 (DEFMACRO <CLM-SWAP-DOUBLES> (ARR N) ...)-44|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC DD 72 4C 32 9C C5 19 01)
+   (|CLM|::|<CLM-SWAP-DOUBLES>| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|<CLM-SWAP-DOUBLES>|
+       #47Y(00 00 00 00 02 00 00 00 26 03 AE DA DA 63 2D 04 01 1D 17 9F 5C 78
+            A0 5C 5C 78 6B 03 DE AF 6F 05 AF E0 70 07 2D 04 08 00 19 05 AE 2F
+            02 19 03)
+       (3. |SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|MACRO-CALL-ERROR|
+        |CLM|::|*C-FILE*|
+        #Y(|CLM|::|<CLM-SWAP-DOUBLES>-1|
+           #43Y(00 00 00 00 03 00 00 00 21 19 00 10 00 DB B4 38 02 31 95 B2 B4
+                31 90 DC B4 38 02 31 95 B1 B4 31 90 DD B4 38 02 31 95 A1 11 19
+                05)
+           (|SYSTEM|::|*FORMAT-CS*| "  swap_double_array((char *)(" "), "
+            " * 8);\n")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        |CLM|::|LC-ARR-REF| :|INTEGER| |CLM|::|LC-NUM-REF|
+        |COMMON-LISP|::|FORMAT|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|) |COMMON-LISP|::|NIL| 1)
+    (|CLM|::|ARR| |CLM|::|N|))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|348 348 (DEF-CLM-FUN 'CLM-SWAP-DOUBLES #'(LAMBDA # # ...))-45|
+   #16Y(00 00 00 00 00 00 00 00 20 01 DA DB 30 02 19 01)
+   (|CLM|::|CLM-SWAP-DOUBLES|
+    #Y(#:|348 348 (DEF-CLM-FUN 'CLM-SWAP-DOUBLES #'(LAMBDA # # ...))-45-1|
+       #19Y(00 00 00 00 02 00 00 00 20 03 DA 63 AF DB 2D 04 02 19 03)
+       (|CLM|::|<CLM-SWAP-DOUBLES>| :|CLM-INTEGER| |CLM|::|PACKAGE-OP|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+    |CLM|::|DEF-CLM-FUN|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|350 360 (DEFUN CLM-SWAP-DOUBLES (ARR N) ...)-46|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|CLM|::|CLM-SWAP-DOUBLES| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|CLM|::|CLM-SWAP-DOUBLES|
+       #16Y(00 00 00 00 02 00 00 00 26 03 DA 2F 01 C7 19 03)
+       ("clm-swap-doubles doesn't work in clisp" |COMMON-LISP|::|WARN| -1.)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|CLM|::|ARR| |CLM|::|N|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))

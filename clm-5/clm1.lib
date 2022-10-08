@@ -1,0 +1,414 @@
+#0Y_ #0Y |CHARSET|::|UTF-8|
+(|COMMON-LISP|::|SETQ| |COMMON-LISP|::|*PACKAGE*|
+ (|SYSTEM|::|%FIND-PACKAGE| "CLM"))
+(|EXT|::|WITHOUT-PACKAGE-LOCK| ("FFI")
+ (|COMMON-LISP|::|SETQ| |FFI|::|*FOREIGN-LANGUAGE*| ':|STDC|))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-SEEK|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_lseek") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|) (|CLM|::|LOC| |FFI|::|INT|)
+         (|COMMON-LISP|::|TYPE| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-SEEK| . #1#))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-SEEK-BYTES>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-SEEK-BYTES>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-SEEK-BYTES>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|FD| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|N| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-SEEK-BYTES>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  lseek(~A, ~A, SEEK_SET);~80,1T/* (clm-seek-bytes ~A ~A) */~%"
+        (|CLM|::|LC-NUM-REF| |CLM|::|FD| :|INTEGER|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|)
+        (|CLM|::|CLEAN-ARG| |CLM|::|FD|) (|CLM|::|CLEAN-ARG| |CLM|::|N|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|FD| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SEEK-BYTES|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FD| |CLM|::|N|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-SEEK-FLOATS>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-SEEK-FLOATS>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-SEEK-FLOATS>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|FD| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|N| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-SEEK-FLOATS>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  lseek(~A, ~A * sizeof(double), SEEK_SET);~80,1T/* (clm-seek-floats ~A ~A) */~%"
+        (|CLM|::|LC-NUM-REF| |CLM|::|FD| :|INTEGER|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|)
+        (|CLM|::|CLEAN-ARG| |CLM|::|FD|) (|CLM|::|CLEAN-ARG| |CLM|::|N|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|FD| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SEEK-FLOATS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FD| |CLM|::|N|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-READ-FLOATS>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-READ-FLOATS>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-READ-FLOATS>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 5. 5.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|FD| (|COMMON-LISP|::|CADDR| . #1#))
+       (|CLM|::|ARR| (|COMMON-LISP|::|CADDDR| . #1#))
+       (|CLM|::|N| (|COMMON-LISP|::|FIFTH| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-READ-FLOATS>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  ~A = read(~A, (char *)(~A), ~A * sizeof(double)) / sizeof(double);~%"
+        (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+        (|CLM|::|LC-NUM-REF| |CLM|::|FD| :|INTEGER|)
+        (|CLM|::|LC-ARR-REF| |CLM|::|ARR|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLISP-DOUBLES-INIT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_doubles_init")
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|)) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|) (|CLM|::|N| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-DOUBLES-INIT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLISP-DOUBLE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_double") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|DOUBLE-FLOAT|)
+        (:|ARGUMENTS| (|CLM|::|I| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-DOUBLE| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-READ-FLOATS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FD| |CLM|::|BUF| |CLM|::|N|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-READ-INTS>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-READ-INTS>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-READ-INTS>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 5. 5.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|FD| (|COMMON-LISP|::|CADDR| . #1#))
+       (|CLM|::|ARR| (|COMMON-LISP|::|CADDDR| . #1#))
+       (|CLM|::|N| (|COMMON-LISP|::|FIFTH| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-READ-INTS>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  ~A = read(~A, (char *)(~A), ~A * sizeof(int)) / sizeof(int);~%"
+        (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+        (|CLM|::|LC-NUM-REF| |CLM|::|FD| :|INTEGER|)
+        (|CLM|::|LC-ARR-REF| |CLM|::|ARR|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLISP-INTS-INIT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_ints_init") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|) (|CLM|::|N| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-INTS-INIT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-CLISP-INT|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_int") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|) (:|ARGUMENTS| (|CLM|::|I| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-CLISP-INT| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-READ-INTS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FD| |CLM|::|BUF| |CLM|::|N|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-WRITE-FLOATS>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-WRITE-FLOATS>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-WRITE-FLOATS>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 5. 5.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|FD| (|COMMON-LISP|::|CADDR| . #1#))
+       (|CLM|::|ARR| (|COMMON-LISP|::|CADDDR| . #1#))
+       (|CLM|::|N| (|COMMON-LISP|::|FIFTH| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-WRITE-FLOATS>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  ~A = write(~A, (char *)(~A), ~A * sizeof(double)) / sizeof(double);~%"
+        (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+        (|CLM|::|LC-NUM-REF| |CLM|::|FD| :|INTEGER|)
+        (|CLM|::|LC-ARR-REF| |CLM|::|ARR|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-WRITE-FLOATS|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_write_floats")
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|)) (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|)
+         (|CLM|::|BUF| (|FFI|::|C-ARRAY-PTR| |COMMON-LISP|::|DOUBLE-FLOAT|))
+         (|CLM|::|N| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-WRITE-FLOATS| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-WRITE-FLOATS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FD| |CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-WRITE-INTS>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-WRITE-INTS>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-WRITE-INTS>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 5. 5.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|FD| (|COMMON-LISP|::|CADDR| . #1#))
+       (|CLM|::|ARR| (|COMMON-LISP|::|CADDDR| . #1#))
+       (|CLM|::|N| (|COMMON-LISP|::|FIFTH| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-WRITE-INTS>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  ~A = write(~A, (char *)(~A), ~A * sizeof(int)) / sizeof(int);~%"
+        (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+        (|CLM|::|LC-NUM-REF| |CLM|::|FD| :|INTEGER|)
+        (|CLM|::|LC-ARR-REF| |CLM|::|ARR|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|FD| |CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-WRITE-INTS|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_write_ints") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|)
+         (|CLM|::|BUF| (|FFI|::|C-ARRAY-PTR| |FFI|::|INT|))
+         (|CLM|::|N| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-WRITE-INTS| . #1#))))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-WRITE-INTS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|FD| |CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<C-CLOSE>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<C-CLOSE>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<C-CLOSE>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|ARG| (|COMMON-LISP|::|CADR| |SYSTEM|::|<MACRO-FORM>|)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<C-CLOSE>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  close(~A);~80,1T/* (c-close ~A) */~%"
+        (|CLM|::|LC-NUM-REF| |CLM|::|ARG| :|INTEGER|)
+        (|CLM|::|CLEAN-ARG| |CLM|::|ARG|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|ARG|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-CLOSE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "clm_clisp_close") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|FD| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-CLOSE| . #1#))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<C-OPEN-INPUT-FILE>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<C-OPEN-INPUT-FILE>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<C-OPEN-INPUT-FILE>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|ARG| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<C-OPEN-INPUT-FILE>|
+       (|COMMON-LISP|::|IF| (|COMMON-LISP|::|STRINGP| |CLM|::|ARG|)
+        (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+         "  ~A = mus_file_open_read(\"~A\");~80,1T/* (c-open-input-file ~A) */~%"
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|)) |CLM|::|ARG|
+         |CLM|::|ARG|)
+        (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+         "  ~A = mus_file_open_read(~A);~80,1T/* (c-open-input-file ~A) */~%"
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|ARG|))
+         (|CLM|::|CLEAN-ARG| |CLM|::|ARG|)))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|ARG|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-OPEN-INPUT-FILE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_file_open_read") (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|ARGUMENTS| (|CLM|::|ARG| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-OPEN-INPUT-FILE| . #1#))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<C-OPEN-OUTPUT-FILE>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<C-OPEN-OUTPUT-FILE>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<C-OPEN-OUTPUT-FILE>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|ARG| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<C-OPEN-OUTPUT-FILE>|
+       (|COMMON-LISP|::|IF| (|COMMON-LISP|::|STRINGP| |CLM|::|ARG|)
+        (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+         "  ~A = mus_file_open_write(\"~A\");~80,1T/* (c-open-output-file ~A) */~%"
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|)) |CLM|::|ARG|
+         |CLM|::|ARG|)
+        (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+         "  ~A = mus_file_open_write(~A);~80,1T/* (c-open-output-file ~A) */~%"
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|ARG|))
+         (|CLM|::|CLEAN-ARG| |CLM|::|ARG|)))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|ARG|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-OPEN-OUTPUT-FILE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_file_open_write") (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|ARGUMENTS| (|CLM|::|ARG| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-OPEN-OUTPUT-FILE| . #1#))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<C-CREATE-FILE>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<C-CREATE-FILE>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<C-CREATE-FILE>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|RESULT|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|ARG| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<C-CREATE-FILE>|
+       (|COMMON-LISP|::|IF| (|COMMON-LISP|::|STRINGP| |CLM|::|ARG|)
+        (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+         "  ~A = mus_file_create(\"~A\");~80,1T/* (c-create-file ~A) */~%"
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|)) |CLM|::|ARG|
+         |CLM|::|ARG|)
+        (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+         "  ~A = mus_file_create(~A);~80,1T/* (c-create-file ~A) */~%"
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|RESULT|))
+         (|CLM|::|LC| (|COMMON-LISP|::|SECOND| |CLM|::|ARG|))
+         (|CLM|::|CLEAN-ARG| |CLM|::|ARG|)))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|RESULT| |CLM|::|ARG|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|C-CREATE-FILE|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "mus_file_create") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |FFI|::|INT|)
+        (:|ARGUMENTS| (|CLM|::|ARG| |FFI|::|C-STRING|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|C-CREATE-FILE| . #1#))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-SWAP-INTS>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-SWAP-INTS>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-SWAP-INTS>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|ARR| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|N| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-SWAP-INTS>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  swap_int_array((char *)(~A), ~A * 4);~%"
+        (|CLM|::|LC-ARR-REF| |CLM|::|ARR|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SWAP-INTS|
+ (|FFI|::|C-TYPE-TO-SIGNATURE|
+  (|FFI|::|PARSE-C-FUNCTION|
+   '#1=((:|NAME| "swap_int_array") (:|LIBRARY| (|CLM|::|FULL-LIB-NAME|))
+        (:|RETURN-TYPE| |COMMON-LISP|::|NIL|)
+        (:|ARGUMENTS| (|CLM|::|BUF| (|FFI|::|C-ARRAY-PTR| |FFI|::|INT|))
+         (|CLM|::|BYTES| |FFI|::|INT|)))
+   '(|FFI|::|DEF-CALL-OUT| |CLM|::|CLM-SWAP-INTS| . #1#))))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|CLM|::|<CLM-SWAP-DOUBLES>|)
+(|SYSTEM|::|%PUTD| '|CLM|::|<CLM-SWAP-DOUBLES>|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |CLM|::|<CLM-SWAP-DOUBLES>|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 3. 3.
+       |COMMON-LISP|::|NIL|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|CLM|::|ARR| (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|CLM|::|N| (|COMMON-LISP|::|CADDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |CLM|::|<CLM-SWAP-DOUBLES>|
+       (|COMMON-LISP|::|FORMAT| |CLM|::|*C-FILE*|
+        "  swap_double_array((char *)(~A), ~A * 8);~%"
+        (|CLM|::|LC-ARR-REF| |CLM|::|ARR|)
+        (|CLM|::|LC-NUM-REF| |CLM|::|N| :|INTEGER|))
+       |COMMON-LISP|::|NIL|)))))
+  '(|CLM|::|ARR| |CLM|::|N|)))
+(|SYSTEM|::|C-DEFUN| '|CLM|::|CLM-SWAP-DOUBLES|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|CLM|::|ARR| |CLM|::|N|)))
